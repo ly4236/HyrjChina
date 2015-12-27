@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{08BB9803-4123-47AC-A1FB-41EB3CDDFA29}</ProjectGuid>
+    <ProjectGuid>{7EE77CFC-676C-46C3-8002-877C89882EFD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HyrjChina.Core</RootNamespace>
-    <AssemblyName>HyrjChina.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>HyrjChina.Service</RootNamespace>
+    <AssemblyName>HyrjChina.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,18 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,34 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseEntity.cs" />
-    <Compile Include="Data\IDBContext.cs" />
-    <Compile Include="Data\ITransaction.cs" />
-    <Compile Include="Domain\Common\Address.cs" />
-    <Compile Include="Domain\Customers\Customer.cs" />
-    <Compile Include="Domain\Customers\CustomerNameFormat.cs" />
-    <Compile Include="Domain\Customers\CustomerNumberMethod.cs" />
-    <Compile Include="Domain\Customers\CustomerNumberVisibility.cs" />
-    <Compile Include="Domain\Customers\CustomerRole.cs" />
-    <Compile Include="Domain\Customers\CustomerSettings.cs" />
-    <Compile Include="Domain\Customers\PasswordFormat.cs" />
-    <Compile Include="Domain\Customers\UserRegistrationType.cs" />
-    <Compile Include="Extensions\ConversionExtensions.cs" />
-    <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="Extensions\TypeExtensions.cs" />
-    <Compile Include="Infrastructure\DisposableObject.cs" />
-    <Compile Include="Infrastructure\Error.cs" />
-    <Compile Include="Infrastructure\Guard.cs" />
+    <Compile Include="Customers\ChangePasswordRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Domain\Catelog\" />
-    <Folder Include="Domain\Orders\" />
-    <Folder Include="Domain\Security\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <ProjectReference Include="..\HyrjChina.Core\HyrjChina.Core.csproj">
+      <Project>{08bb9803-4123-47ac-a1fb-41eb3cddfa29}</Project>
+      <Name>HyrjChina.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HyrjChina.Data\HyrjChina.Data.csproj">
+      <Project>{a9552436-8e8f-474a-9a14-ed9124ee4270}</Project>
+      <Name>HyrjChina.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
