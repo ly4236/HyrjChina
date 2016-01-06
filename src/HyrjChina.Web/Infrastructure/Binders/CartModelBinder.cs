@@ -8,14 +8,13 @@ namespace HyrjChina.Web.Infrastructure.Binders
 {
     public class CartModelBinder : IModelBinder
     {
-        private const string sessionKey = "Cart";
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
             // get the Cart from the session
             Cart cart = null;
             if (controllerContext.HttpContext.Session != null)
             {
-                cart = (Cart)controllerContext.HttpContext.Session[sessionKey];
+                cart = (Cart)controllerContext.HttpContext.Session["Cart"];
             }
             // create the Cart if there wasn't one in the session data
             if (cart == null)
@@ -23,11 +22,12 @@ namespace HyrjChina.Web.Infrastructure.Binders
                 cart = new Cart();
                 if (controllerContext.HttpContext.Session != null)
                 {
-                    controllerContext.HttpContext.Session[sessionKey] = cart;
+                    controllerContext.HttpContext.Session["Cart"] = cart;
                 }
             }
             // return the cart
             return cart;
         }
+        
     }
 }

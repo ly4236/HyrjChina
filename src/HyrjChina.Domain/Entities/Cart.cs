@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace HyrjChina.Domain.Entities
 {
+    [Serializable]
     public class Cart
     {
         private List<CartLine> lineCollection = new List<CartLine>();
@@ -48,5 +49,6 @@ namespace HyrjChina.Domain.Entities
     {
         public Product Product { get; set; }
         public int Quantity { get; set; }
-    }
+    }
+
 }

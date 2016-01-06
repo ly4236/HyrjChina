@@ -16,5 +16,6 @@ namespace HyrjChina.Domain.Entities
         [Required(ErrorMessage = "请输入地址")]
         public string Address { get; set; }
 
-    }
+    }
+
 }
