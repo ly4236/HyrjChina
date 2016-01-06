@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列特性集
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("HyrjChina.Web")]
+[assembly: AssemblyTitle("HyrjChina.Admin")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("HyrjChina.Web")]
+[assembly: AssemblyProduct("HyrjChina.Admin")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于 typelib 的 ID
-[assembly: Guid("59e88494-a274-4e34-a8bf-72dd9936a222")]
+[assembly: Guid("fbe02ab2-c6b3-40d3-b6f7-00795329f9c2")]
 
 // 程序集的版本信息由下列四个值组成:
 //

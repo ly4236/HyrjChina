@@ -1,9 +1,11 @@
-﻿using HyrjChina.Domain.Entities;
-using HyrjChina.Web.Infrastructure.Binders;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace HyrjChina.Web
+namespace HyrjChina.Admin
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -11,8 +13,6 @@ namespace HyrjChina.Web
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
-            ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
         }
     }
 }
