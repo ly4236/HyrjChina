@@ -4,6 +4,8 @@ using System.Web.Mvc;
 using Ninject;
 using HyrjChina.Domain.Abstarct;
 using HyrjChina.Domain.Concrete;
+using HyrjChina.Web.Infrastructure.Abstract;
+using HyrjChina.Web.Concrete;
 
 namespace HyrjChina.Web.Infrastructure
 {
@@ -30,6 +32,7 @@ namespace HyrjChina.Web.Infrastructure
         private void AddBindings()
         {
             kernel.Bind<IProductRepository>().To<EFProductRepository>();
+            kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
     }
 }
