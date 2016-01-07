@@ -1,0 +1,38 @@
+﻿@model HyrjChina.Domain.Entities.ShippingDetails
+
+@{
+    ViewBag.Title = "订单结算页 - 鼎智科技";
+}
+
+<h2>全部商品</h2>
+<p>填写并核对订单信息</p>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+   <h3>收货人信息</h3>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+    foreach (var property in ViewData.ModelMetadata.Properties)
+    {
+        if (property.PropertyName != "Name" && property.PropertyName != "GiftWrap")
+        {
+            <div class="form-group">
+                <label>
+                    @(property.DisplayName ?? property.PropertyName)
+                </label>
+                @Html.TextBox(property.PropertyName, null, new
+           {
+               @class = "form-control"
+           }) 
+            </div>
+        }
+    }
+
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="提交订单" />
+    </div>
+
+}
