@@ -1,14 +1,15 @@
 ﻿using HyrjChina.Domain.Abstarct;
 using HyrjChina.Domain.Entities;
 using System.Linq;
-using System.Web.Mvc;using HyrjChina.Web.Models;
+using System.Web.Mvc;
+using HyrjChina.Web.Models;
 
 namespace HyrjChina.Web.Controllers
 {
     public class CartController : Controller
     {
-        private IProductRepository repository;
-        public CartController(IProductRepository repo)
+        private IProductRespository repository;
+        public CartController(IProductRespository repo)
         {
             repository = repo;
         }
@@ -19,7 +20,8 @@ namespace HyrjChina.Web.Controllers
                 Cart = cart,
                 ReturnUrl = returnUrl
             });
-        }
+        }
+
         public RedirectToRouteResult AddToCart(Cart cart, int ID, string returnUrl)
         {
             Product product = repository.Products.FirstOrDefault(p => p.ID == ID);
@@ -47,7 +49,8 @@ namespace HyrjChina.Web.Controllers
         public ViewResult Checkout()
         {
             return View(new ShippingDetails());
-        }        [HttpPost]
+        }
+        [HttpPost]
         public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
         {
             if (cart.Lines.Count() == 0)
@@ -63,6 +66,7 @@ namespace HyrjChina.Web.Controllers
             else {
                 return View(shippingDetails);
             }
-        }
+        }
+
     }
 }

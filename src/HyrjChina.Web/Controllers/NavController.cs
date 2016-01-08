@@ -9,8 +9,8 @@ namespace HyrjChina.Web.Controllers
 {
     public class NavController : Controller
     {
-        private IProductRepository repository;
-        public NavController(IProductRepository repo)
+        private IProductRespository repository;
+        public NavController(IProductRespository repo)
         {
             repository = repo;
         }

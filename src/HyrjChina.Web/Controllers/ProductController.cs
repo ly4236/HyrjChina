@@ -5,15 +5,16 @@ using System.Web;
 using System.Web.Mvc;
 using HyrjChina.Domain.Abstarct;
 using HyrjChina.Web.Models;
+using HyrjChina.Domain.Entities;
 
 namespace HyrjChina.Web.Controllers
 {
     public class ProductController : Controller
     {
-        private IProductRepository repository;
+        private IProductRespository repository;
         public int PageSize = 4;
 
-        public ProductController(IProductRepository productRepository)
+        public ProductController(IProductRespository productRepository)
         {
             this.repository = productRepository;
         }
@@ -38,9 +39,20 @@ namespace HyrjChina.Web.Controllers
                 },
                 CurrentCategory = category
             };
-            return View(model);
-
-
+            return View(model);
         }
+
+        public FileContentResult GetImage(int ID)
+        {
+            Product prod = repository.Products
+            .FirstOrDefault(p => p.ID == ID);
+            if (prod != null)
+            {
+                return File(prod.ImageData, prod.ImageMimeType);
+            }
+            else {
+                return null;
+            }
+        }
     }
 }

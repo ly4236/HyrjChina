@@ -6,6 +6,8 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-2.1.4.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
     <style>
         .navbar-right {
             float: right !important;
@@ -16,21 +18,51 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div class="navbar navbar-inverse" role="navigation">
-        <a class="navbar-brand" href="#">
-            <span class="hidden-xs">鼎智科技</span>
-            <div class="visible-xs">鼎智</div>
-        </a>
+    <header></header>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            @Html.ActionLink("鼎智科技", "Index", "Home", null, new { @class = "navbar-brand" })
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("产品列表", "List", "Product")</li>
+             
+                <li><a href="#">客户服务</a></li>
+                @*<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Java
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">jmeter</a></li>
+                            <li><a href="#">EJB</a></li>
+                            <li><a href="#">Jasper Report</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">分离的链接</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">另一个分离的链接</a></li>
+                        </ul>
+                    </li>*@
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <p class="navbar-text navbar-right">
+                欢迎光临，请
+                @Html.ActionLink("登录", "Login", "Account", null, new { @class = "btn-link" })
+            </p>
+        </div>
+    </nav>
+    <section>
+        @RenderBody()
+    </section>
+    <footer></footer>
+    @*<div class="navbar navbar-inverse" role="navigation">
+            @Html.ActionLink("鼎智科技", "Index", "Home", new { area = "" }, new { @class = "navbar-brand logo" })
             @Html.Action("Summary", "Cart")
-</div>
-    <div class="row panel">
-        <div class="visible-xs">
-            @Html.Action("Menu", "Nav", new { horizontalLayout = true })
         </div>
-
-        <div class="col-xs-12 col-sm-8">
-            @RenderBody()
-        </div>
-    </div>
+        <div class="row panel">
+            @*<div class="visible-xs">
+                    @Html.Action("Menu", "Nav", new { horizontalLayout = true })
+                </div>*@
 </body>
 </html>

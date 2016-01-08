@@ -31,7 +31,7 @@ namespace HyrjChina.Web.Infrastructure
 
         private void AddBindings()
         {
-            kernel.Bind<IProductRepository>().To<EFProductRepository>();
+            kernel.Bind<IProductRespository>().To<EFProductRepository>();
             kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
     }

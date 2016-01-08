@@ -12,6 +12,14 @@ namespace HyrjChina.Web
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "HyrjChina.Web.Controllers" }
+            );
+
             routes.MapRoute(null, "", new
             {
                 controller = "Product",
@@ -30,7 +38,9 @@ namespace HyrjChina.Web
 
             routes.MapRoute(null, "{category}/Page{page}", new { controller = "Product", action = "List" }, new { page = @"\d+" });
 
-            routes.MapRoute(null, "{controller}/{action}");
+            routes.MapRoute(null, "{controller}/{action}");
+
+
         }
     }
 }
