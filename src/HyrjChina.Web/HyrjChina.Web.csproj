@@ -141,6 +141,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\ace\ace-ie.min.css" />
+    <Content Include="Content\ace\ace-rtl.min.css" />
+    <Content Include="Content\ace\ace-skins.min.css" />
+    <Content Include="Content\ace\ace.min.css" />
+    <Content Include="Content\ace\bootstrap-editable.css" />
+    <Content Include="Content\ace\bootstrap-timepicker.css" />
+    <Content Include="Content\ace\bootstrap.min.css" />
+    <Content Include="Content\ace\chosen.css" />
+    <Content Include="Content\ace\colorbox.css" />
+    <Content Include="Content\ace\colorpicker.css" />
+    <Content Include="Content\ace\datepicker.css" />
+    <Content Include="Content\ace\daterangepicker.css" />
+    <Content Include="Content\ace\dropzone.css" />
+    <Content Include="Content\ace\font-awesome-ie7.min.css" />
+    <Content Include="Content\ace\font-awesome.min.css" />
+    <Content Include="Content\ace\fullcalendar.css" />
+    <Content Include="Content\ace\images\loading.gif" />
+    <Content Include="Content\ace\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Content\ace\jquery-ui-1.10.3.full.min.css" />
+    <Content Include="Content\ace\jquery.gritter.css" />
+    <Content Include="Content\ace\select2.css" />
+    <Content Include="Content\ace\ui.jqgrid.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -365,6 +387,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="scripts\ace-elements.min.js" />
+    <Content Include="scripts\ace-extra.min.js" />
+    <Content Include="scripts\ace.min.js" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -377,9 +402,14 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="Content\ace\images\Thumbs.db" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\test发布.pubxml" />
     <None Include="Properties\PublishProfiles\本地发布.pubxml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\html5shiv.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
@@ -395,6 +425,7 @@
     <Content Include="scripts\jquery.validate.unobtrusive.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\respond.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -403,9 +434,12 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Concrete\FormsAuthProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />
@@ -442,10 +476,11 @@
     <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
     <Content Include="Views\Nav\FlexMenu.Mobile.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Menu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -455,6 +490,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HyrjChina.Domain\HyrjChina.Domain.csproj">

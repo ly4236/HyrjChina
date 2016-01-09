@@ -11,7 +11,6 @@ namespace HyrjChina.Domain.Concrete
         public IEnumerable<Product> Products
         {
             get { return context.Products; }
-
         }
 
         public Product DeleteProduct(int productID)
@@ -38,9 +37,10 @@ namespace HyrjChina.Domain.Concrete
                     dbEntry.Name = product.Name;
                     dbEntry.Description = product.Description;
                     dbEntry.Price = product.Price;
-                    dbEntry.Category = product.Category;
+                    dbEntry.CategoryID = product.CategoryID;
                     dbEntry.ImageData = product.ImageData;
-                    dbEntry.ImageMimeType = product.ImageMimeType;
+                    dbEntry.ImageMimeType = product.ImageMimeType;
+
                 }
             }
             context.SaveChanges();

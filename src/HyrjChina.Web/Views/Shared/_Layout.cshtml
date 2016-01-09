@@ -26,7 +26,7 @@
         <div>
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink("产品列表", "List", "Product")</li>
-             
+
                 <li><a href="#">客户服务</a></li>
                 @*<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -55,7 +55,12 @@
     <section>
         @RenderBody()
     </section>
-    <footer></footer>
+    <footer>
+        @Html.ActionLink("管理员登录", "Login", "Account", new { @returnUrl = Url.Action("Index", "Home", new { area = "Admin" }) }, new { @class = "btn-link" });
+
+
+
+    </footer>
     @*<div class="navbar navbar-inverse" role="navigation">
             @Html.ActionLink("鼎智科技", "Index", "Home", new { area = "" }, new { @class = "navbar-brand logo" })
             @Html.Action("Summary", "Cart")

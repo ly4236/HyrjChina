@@ -1,0 +1,72 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <script src="~/scripts/jquery-2.1.4.js"></script>
+    <script src="~/scripts/jquery.validate.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <!--[if IE 7]>
+      <link rel="stylesheet" href="~/Content/ace/font-awesome-ie7.min.css" />
+    <![endif]-->
+    <link href="~/Content/ace/ace.min.css" rel="stylesheet" />
+    <link href="~/Content/ace/ace-skins.min.css" rel="stylesheet" />
+    <link href="~/Content/ace/ace-rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/ace/ace-ie.min.css" rel="stylesheet" />
+    <!--[if lte IE 8]>
+          <link rel="stylesheet" href="~/Content/ace/ace-ie.min.css" />
+        <![endif]-->
+
+    
+
+    <script src="~/scripts/ace-elements.min.js"></script>
+    <script src="~/scripts/ace-extra.min.js"></script>
+    <script src="~/scripts/ace.min.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="~/scripts/html5shiv.js"></script>
+        <script src="~/scripts/respond.min.js"></script>
+        <![endif]-->
+
+    <style>
+        /*控制菜单箭头*/
+        .nav-header.collapsed > span.glyphicon-chevron-toggle:before {
+            content: "\e114";
+        }
+
+        .nav-header > span.glyphicon-chevron-toggle:before {
+            content: "\e113";
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+    @if (TempData["message"] != null)
+    {
+        <div class="alert alert-success">@TempData["message"]</div>
+    }
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            @Html.ActionLink("鼎智科技", "Index", "Home", null, new { @class = "navbar-brand" })
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-md-2">
+            @Html.Partial("_Menu")
+        </div>
+        <div class="col-md-10 ">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

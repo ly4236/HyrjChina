@@ -77,19 +77,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstarct\ICategoryRepository.cs" />
     <Compile Include="Abstarct\IOrderProcessor.cs" />
     <Compile Include="Abstarct\IProductRespository.cs" />
+    <Compile Include="Concrete\EFCategoryRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFProductRepository.cs" />
     <Compile Include="Entities\Cart.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ShippingDetails.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Migrations\201601090618121_InitialCreate.cs" />
+    <Compile Include="Migrations\201601090618121_InitialCreate.Designer.cs">
+      <DependentUpon>201601090618121_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601090618121_InitialCreate.resx">
+      <DependentUpon>201601090618121_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

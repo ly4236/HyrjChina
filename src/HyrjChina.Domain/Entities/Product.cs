@@ -10,7 +10,7 @@ namespace HyrjChina.Domain.Entities
 
         [Required(ErrorMessage = "请输入产品名称")]
         public string Name { get; set; }
-        public string Category { get; set; }
+        public int CategoryID { get; set; }
 
         [DataType(DataType.MultilineText)]
         [Required(ErrorMessage = "请输入产品说明")]
@@ -23,7 +23,8 @@ namespace HyrjChina.Domain.Entities
         public byte[] ImageData { get; set; }
         public string ImageMimeType { get; set; }
 
-        //public bool IsActive { get; set; }
+        //public bool IsActive { get; set; }
+
         
     }
 }

@@ -28,7 +28,7 @@ namespace HyrjChina.Web.Controllers
                 model.Password))
                 {
                     return Redirect(returnUrl ?? Url.Action("Index",
-                    "Admin"));
+                    "Home"));
                 }
                 else {
                     ModelState.AddModelError("", "Incorrect username or password");

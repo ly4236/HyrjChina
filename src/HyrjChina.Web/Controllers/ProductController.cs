@@ -23,7 +23,7 @@ namespace HyrjChina.Web.Controllers
             ProductsListViewModel model = new ProductsListViewModel
             {
                 Products = repository.Products
-                    .Where(p => category == null || p.Category ==
+                    .Where(p => category == null || p.CategoryID.ToString() ==
                     category)
                     .OrderBy(p => p.ID)
                     .Skip((page - 1) * PageSize)
@@ -34,7 +34,7 @@ namespace HyrjChina.Web.Controllers
                     ItemsPerPage = PageSize,
                     TotalItems = category == null ?
                             repository.Products.Count() :
-                            repository.Products.Where(e => e.Category ==
+                            repository.Products.Where(e => e.CategoryID.ToString() ==
                             category).Count()
                 },
                 CurrentCategory = category
@@ -53,6 +53,7 @@ namespace HyrjChina.Web.Controllers
             else {
                 return null;
             }
-        }
+        }
+
     }
 }

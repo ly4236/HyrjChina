@@ -13,6 +13,7 @@ namespace HyrjChina.Domain.Abstarct
 
         void SaveProduct(Product product);
 
-        Product DeleteProduct(int productID);
+        Product DeleteProduct(int productID);
+
     }
 }

@@ -18,7 +18,7 @@ namespace HyrjChina.Web.Controllers
         {
             ViewBag.SelectedCategory = category;
             IEnumerable<string> categories = repository.Products
-            .Select(x => x.Category)
+            .Select(x => x.CategoryID.ToString())
             .Distinct()
             .OrderBy(x => x);
             return PartialView("FlexMenu", categories);
