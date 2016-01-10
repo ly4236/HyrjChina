@@ -47,7 +47,7 @@ namespace HyrjChina.Domain.Migrations
                     CategoryID = 1,
                     Description = "s",
                     Price = 1860,
-                    
+
                 },
                 new Product {
                     Name = "手机综合营业系统-分销版-M系列",
@@ -115,6 +115,14 @@ namespace HyrjChina.Domain.Migrations
             };
 
             customer.ForEach(s => context.Customers.AddOrUpdate(p => p.Name, s));
+            context.SaveChanges();
+
+            var user = new List<User>
+            {
+                new User { Username="ly4236",Name = "李杨",Password = "123"}
+            };
+
+            user.ForEach(s => context.Users.AddOrUpdate(p => p.Username, s));
             context.SaveChanges();
         }
     }

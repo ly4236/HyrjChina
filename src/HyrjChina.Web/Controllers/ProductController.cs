@@ -18,6 +18,13 @@ namespace HyrjChina.Web.Controllers
         {
             this.repository = productRepository;
         }
+
+        public ViewResult Index(int ID)
+        {
+            Product product = repository.Products.First(x => x.ID == ID);
+            return View(product);
+        }
+
         public ViewResult List(string category, int page = 1)
         {
             ProductsListViewModel model = new ProductsListViewModel
@@ -54,6 +61,17 @@ namespace HyrjChina.Web.Controllers
                 return null;
             }
         }
+        public ViewResult ProductSoftwareIndex()
+        {
+            ProductSoftwareIndexViewMode model = new ProductSoftwareIndexViewMode
+            {
+                Products = repository.Products
+                    .Where(p => p.CategoryID == 1)
+                    .OrderBy(p => p.ID).ToList()
+            };
+            return View(model);
+        }
+
 
     }
 }

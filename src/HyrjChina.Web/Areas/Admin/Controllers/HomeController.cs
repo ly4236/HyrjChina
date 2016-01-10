@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace HyrjChina.Web.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class HomeController : Controller
     {
-        // GET: Admin/User
+        // GET: Admin/Home
         public ActionResult Index()
         {
             return View();

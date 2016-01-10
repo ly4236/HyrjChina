@@ -1,13 +1,14 @@
 ﻿using HyrjChina.Domain.Entities;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
 namespace HyrjChina.Web.Models
 {
-    public class ProductsListViewModel
+    public class ProductSoftwareIndexViewMode
     {
-        public IEnumerable<Product> Products { get; set; }
-        public PagingInfo PagingInfo { get; set; }
+        public IList<Product> Products { get; set; }
         public string CurrentCategory { get; set; }
-
     }
 }

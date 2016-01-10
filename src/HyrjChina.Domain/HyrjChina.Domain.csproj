@@ -80,9 +80,11 @@
     <Compile Include="Abstarct\ICategoryRepository.cs" />
     <Compile Include="Abstarct\IOrderProcessor.cs" />
     <Compile Include="Abstarct\IProductRespository.cs" />
+    <Compile Include="Abstarct\IUserRepository.cs" />
     <Compile Include="Concrete\EFCategoryRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFProductRepository.cs" />
+    <Compile Include="Concrete\EFUserRepository.cs" />
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Customer.cs" />
@@ -92,6 +94,10 @@
     <Compile Include="Migrations\201601090618121_InitialCreate.cs" />
     <Compile Include="Migrations\201601090618121_InitialCreate.Designer.cs">
       <DependentUpon>201601090618121_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601100130121_AddUserModel.cs" />
+    <Compile Include="Migrations\201601100130121_AddUserModel.Designer.cs">
+      <DependentUpon>201601100130121_AddUserModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,6 +109,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201601090618121_InitialCreate.resx">
       <DependentUpon>201601090618121_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601100130121_AddUserModel.resx">
+      <DependentUpon>201601100130121_AddUserModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

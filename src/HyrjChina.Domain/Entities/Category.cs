@@ -5,12 +5,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace HyrjChina.Domain.Entities
 {
     public class Category
     {
         [Key]
+        [HiddenInput(DisplayValue = false)]
         public int ID { get; set; }
 
         [StringLength(50)]

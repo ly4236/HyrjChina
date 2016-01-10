@@ -5,6 +5,7 @@ namespace HyrjChina.Domain.Entities
 {
     public class Product
     {
+        [Key]
         [HiddenInput(DisplayValue = false)]
         public int ID { get; set; }
 
@@ -25,6 +26,6 @@ namespace HyrjChina.Domain.Entities
 
         //public bool IsActive { get; set; }
 
-        
+
     }
 }

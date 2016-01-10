@@ -27,6 +27,7 @@ namespace HyrjChina.Web.HtmlHelpers
                 result.Append(tag.ToString());
             }
             return MvcHtmlString.Create(result.ToString());
-        }
+        }
+
     }
 }

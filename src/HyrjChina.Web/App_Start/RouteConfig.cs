@@ -20,6 +20,15 @@ namespace HyrjChina.Web
                 namespaces: new string[] { "HyrjChina.Web.Controllers" }
             );
 
+            routes.MapRoute(null, "",
+                new
+                {
+                    controller = "Product",
+                    action = "Index",
+                    id = UrlParameter.Optional
+                });
+
+
             routes.MapRoute(null, "", new
             {
                 controller = "Product",

@@ -9,7 +9,7 @@ namespace HyrjChina.Domain.Concrete
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categorys { get; set; }
         public DbSet<Customer> Customers { get; set; }
-
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -31,7 +31,8 @@ namespace HyrjChina.Domain.Concrete
             //            c.ToTable("Customer", "Chapter10");
             //        });
             modelBuilder.Conventions.Remove<System.Data.Entity.ModelConfiguration.Conventions.PluralizingTableNameConvention>();
-        }
+        }
+
     }
 
 }
