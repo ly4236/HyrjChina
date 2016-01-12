@@ -9,21 +9,19 @@ namespace HyrjChina.Web.Controllers
 {
     public class NavController : Controller
     {
-        private IProductRepository repository;
-        public NavController(IProductRepository repo)
+        private ICategoryRepository repository;
+        public NavController(ICategoryRepository repo)
         {
             repository = repo;
         }
-        public PartialViewResult Menu(string category = null)
+        public PartialViewResult ProductMenu(string id = null)
         {
-            ViewBag.SelectedCategory = category;
-            IEnumerable<string> categories = repository.Products
-            .Select(x => x.Category)
+            ViewBag.SelectedCategory = id;
+            IEnumerable<string> categories = repository.Categorys
+            .Select(x => x.Name.ToString())
             .Distinct()
             .OrderBy(x => x);
-            return PartialView("FlexMenu", categories);
-
-
+            return PartialView("ProductsMenu", categories);
         }
     }
 }

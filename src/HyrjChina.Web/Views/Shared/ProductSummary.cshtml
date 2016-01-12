@@ -1,5 +1,12 @@
 ﻿@model HyrjChina.Domain.Entities.Product
-<div class="well">
+@*@if (Model.ImageData != null)
+    {
+        <div class="pull-left" style="margin-right: 10px">
+            <img class="img-thumbnail" width="75" height="75"
+                 src="@Url.Action("GetImage", "Product",new { Model.ID })" />
+        </div>
+    }
+
     <h3>
         <strong>@Model.Name</strong>
         <span class="pull-right label labelprimary">@Model.Price.ToString("c")</span>
@@ -11,10 +18,37 @@
             @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
             <input type="submit" class="btn btn-success" value="加入购物车" />
         </div>
-
     }
+    <span class="lead"> @Model.Description</span>*@
 
+<div class="col-sm-6 col-md-4 col-lg-3 @ViewData["css"] ">
+    <div class="thumbnail" style="height: 334px;">
+        <a href="http://codeguide.bootcss.com" title="Bootstrap 编码规范" target="_blank" onclick=@Url.Action("GetImage", "Product",new { Model.ID }) width="300" height="150" data-src="http://static.bootcss.com/www/assets/img/codeguide.png" alt="Headroom.js"></a>
+        <div class="caption">
+            <h3>
+                @Model.Name
+            </h3>
+            <p>@Model.Price.ToString("c")</p>
+            <p>
+                @Model.Description
+            </p>
+            @using (Html.BeginForm("Index", "Product"))
+            {
+                <div class="pull-left">
+                    @Html.HiddenFor(x => x.ID)
+                    <input type="submit" class="btn btn-success" value="查看详情" />
+                </div>
+            }
+            @using (Html.BeginForm("AddToCart", "Cart"))
+            {
 
-    <span class="lead"> @Model.Description</span>
+                <div class="pull-right">
+                    @Html.HiddenFor(x => x.ID)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <input type="submit" class="btn btn-success" value="加入购物车" />
+                </div>
+            }
+        </div>
+    </div>
 </div>
 
