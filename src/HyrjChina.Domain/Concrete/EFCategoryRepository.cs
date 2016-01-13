@@ -8,7 +8,7 @@ using HyrjChina.Domain.Entities;
 
 namespace HyrjChina.Domain.Concrete
 {
-    class EFCategoryRepository : ICategoryRepository
+  public  class EFCategoryRepository : ICategoryRepository
     {
         private EFDbContext context = new EFDbContext();
         public IEnumerable<Category> Categorys

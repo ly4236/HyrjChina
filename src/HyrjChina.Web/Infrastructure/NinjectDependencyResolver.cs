@@ -34,6 +34,7 @@ namespace HyrjChina.Web.Infrastructure
             kernel.Bind<IProductRespository>().To<EFProductRepository>();
             kernel.Bind<IUserRepository>().To<EFUserRepository>();
             kernel.Bind<ISessionContext>().To<SessionContext>();
+            kernel.Bind<ICategoryRepository>().To<EFCategoryRepository>();
         }
     }
 }

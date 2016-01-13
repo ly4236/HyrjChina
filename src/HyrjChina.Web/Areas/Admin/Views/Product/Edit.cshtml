@@ -1,74 +1,85 @@
 ﻿@model HyrjChina.Domain.Entities.Product
 @{
     ViewBag.Title = "Admin: Edit " + @Model.Name;
-}
-<div class="panel">
-    <div class="panel-heading">
-        <h3>Edit @Model.Name</h3>
+}<div class="page-content">
+    <div class="page-header">
+        <h1> @Model.Name</h1>
     </div>
-    @using (Html.BeginForm("Edit", "Product",
-                FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <div class="panel-body">
-            @Html.HiddenFor(m => m.ID)
-            @foreach (var property in ViewData.ModelMetadata.Properties)
+    <div class="row">
+        <div class="col-xs-12">
+            @using (Html.BeginForm("Edit", "Product",
+                                                                               FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
             {
-                switch (property.PropertyName)
+                @Html.HiddenFor(m => m.ID)
+                foreach (var property in ViewData.ModelMetadata.Properties)
                 {
-                    case "ID":
-                    case "ImageData":
-                    case "ImageMimeType":
-                        // do nothing
-                        break;
-                    default:
-                        <div class="form-group">
-                            <label>
-                                @(property.DisplayName ?? property.PropertyName)
-                            </label>
-                            @if (property.PropertyName == "Description")
+                    switch (property.PropertyName)
+                    {
+                        case "ID":
+                        case "ImageData":
+                        case "ImageMimeType":
+                            // do nothing
+                            break;
+                        case "CategoryID":
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right">
+                                    @(property.DisplayName ?? property.PropertyName)
+                                </label>
+                                <div class="col-sm-9">@Html.DropDownListFor(m => m.CategoryID, ViewBag.category as SelectList, new { @class = "col-xs-10 col-sm-5" })</div>
+                            </div>
+                            break;
+                        default:
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right">
+                                    @(property.DisplayName ?? property.PropertyName)
+                                </label>
+                                <div class="col-sm-9">
+                                    @if (property.PropertyName == "Description")
                             {
-                                @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
-                            }
-                            else
-                            {
-                                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
-                            }
-                            @Html.ValidationMessage(property.PropertyName)
-                        </div>
-                        break;
+                                        @Html.TextArea(property.PropertyName, null, new { @class = "col-xs-10 col-sm-5", rows = 5 })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBox(property.PropertyName, null, new { @class = "col-xs-10 col-sm-5" })
+                                    }
+                                    @Html.ValidationMessage(property.PropertyName)
+                                </div>
+                            </div>
+                            break;
+                    }
                 }
-            }
-            <div class="form-group">
-                <div style="position:relative;">
-                    <label>Image</label>
-                    <a class='btn' href='javascript:;'>
-                        Choose File...
-                        <input type="file" name="Image" size="40"
-                               style="position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0); opacity:0; background-color:transparent;color:transparent;"
-                               onchange='$("#upload-fileinfo").html($(this).val());'>
-                    </a>
-                    <span class='label label-info' id="upload-file-info">
-                    </span>
-                </div>
-                @if (Model.ImageData == null)
-                {
-                    <div class="form-control-static">
-                        No Image
+                <div class="form-group">
+                    <div style="position:relative;">
+                        <label>图片</label>
+                        <a class='btn' href='javascript:;'>
+                            请选择文件...
+                            <input type="file" name="Image" size="40"
+                                   style="position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0); opacity:0; background-color:transparent;color:transparent;"
+                                   onchange='$("#upload-fileinfo").html($(this).val());'>
+                        </a>
+                        <span class='label label-info' id="upload-file-info">
+                        </span>
                     </div>
-                }
-                else
+                    @if (Model.ImageData == null)
                 {
-                    <img class="img-thumbnail" width="150" height="150"
-                         src="@Url.Action("GetImage", "Product",new { Model.ID })" />
-                }
-            </div>
+                        <div class="form-control-static">
+                            No Image
+                        </div>
+                    }
+                    else
+                    {
+                        <img class="img-thumbnail" width="150" height="150"
+                             src="@Url.Action("GetImage", "Product",new { Model.ID })" />
+                    }
+                </div>
+                <div class="panel-footer">
+                    <input type="submit" value="保存" class="btn btn-primary" />
+                    @Html.ActionLink("取消并返回列表页", "Index", null, new
+               {
+                   @class = "btn btn-default"
+               })
+                </div>
+            }
         </div>
-        <div class="panel-footer">
-            <input type="submit" value="Save" class="btn btn-primary" />
-            @Html.ActionLink("Cancel and return to List", "Index", null, new
-       {
-           @class = "btn btn-default"
-       })
-        </div>
-    }
+    </div>
 </div>
