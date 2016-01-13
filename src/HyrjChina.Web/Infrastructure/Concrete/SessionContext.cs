@@ -17,7 +17,7 @@ namespace HyrjChina.Web.Infrastructure.Concrete
             if (userData != null)
                 data = new JavaScriptSerializer().Serialize(userData);
 
-            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, name, DateTime.Now, DateTime.Now.AddDays(1), isPersistant, userData.ID.ToString());
+            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, name, DateTime.Now, DateTime.Now.AddDays(1), isPersistant, data);
 
             string cookieData = FormsAuthentication.Encrypt(ticket);
             HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, cookieData)

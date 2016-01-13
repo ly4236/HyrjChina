@@ -38,11 +38,11 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
                     image.ContentLength);
                 }
                 repository.SaveProduct(product);
-                TempData["message"] = string.Format("{0} has been saved",
-                product.Name);
+                TempData["message"] = string.Format("{0} 保存成功", product.Name);
                 return RedirectToAction("Index");
             }
-            else {
+            else
+            {
                 // there is something wrong with the data values
                 return View(product);
             }

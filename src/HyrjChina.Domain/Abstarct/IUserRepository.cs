@@ -9,12 +9,16 @@ namespace HyrjChina.Domain.Abstarct
 {
     public interface IUserRepository
     {
-        User GetByUsernameAndPassword(string username,string password);
+        User GetByUsernameAndPassword(string username, string password);
 
         User GetByID(int ID);
 
         User Delete(int ID);
 
         void SaveUser(User user);
+
+        bool IsPassRight(int id, string oldPassword);
+
+        void ChangePassword(int id, string newPassword);
     }
 }

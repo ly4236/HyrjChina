@@ -6,8 +6,8 @@
     <div class="panel-heading">
         <h3>Edit @Model.Name</h3>
     </div>
-    @using (Html.BeginForm("Edit", "Admin",
-                                FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Edit", "Product",
+                FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <div class="panel-body">
             @Html.HiddenFor(m => m.ID)
@@ -29,7 +29,8 @@
                             {
                                 @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
                             }
-                            else {
+                            else
+                            {
                                 @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
                             }
                             @Html.ValidationMessage(property.PropertyName)
@@ -55,7 +56,8 @@
                         No Image
                     </div>
                 }
-                else {
+                else
+                {
                     <img class="img-thumbnail" width="150" height="150"
                          src="@Url.Action("GetImage", "Product",new { Model.ID })" />
                 }

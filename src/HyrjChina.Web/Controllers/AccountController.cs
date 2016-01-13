@@ -30,7 +30,7 @@ namespace HyrjChina.Web.Controllers
                 var authenticatedUser = repository.GetByUsernameAndPassword(model.UserName, model.Password);
                 if (authenticatedUser != null)
                 {
-                    sessionContext.SetAuthenticationToken(authenticatedUser.ID.ToString(), false, authenticatedUser);
+                    sessionContext.SetAuthenticationToken(model.UserName, false, authenticatedUser);
                     return Redirect(returnUrl ?? Url.Action("Index","Home"));
                 }
                 else {

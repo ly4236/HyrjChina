@@ -422,6 +422,8 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Views\Admin\ChangePassword.cshtml" />
     <None Include="Properties\PublishProfiles\test发布.pubxml" />
     <None Include="Properties\PublishProfiles\本地发布.pubxml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
@@ -453,8 +455,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NavController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Models\AdminListViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\ChangePasswordViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -511,8 +516,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Admin\" />
+    <Folder Include="Areas\Admin\Views\Nav\" />
+    <Folder Include="Content\ace\font\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HyrjChina.Domain\HyrjChina.Domain.csproj">

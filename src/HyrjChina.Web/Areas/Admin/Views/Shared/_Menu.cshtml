@@ -3,7 +3,7 @@
 }
 <ul class="nav nav-list">
 
-    <li class="active">
+    <li class="">
         <a href=@Url.Action("Index","Home",null)>
             <i class="icon-dashboard"></i>
             <span class="menu-text"> 控制台 </span>
@@ -34,17 +34,16 @@
         </ul>
     </li>
 
-    <li>
+    <li class="active open">
         <a href="#" class="dropdown-toggle">
             <i class="icon-desktop"></i>
             <span class="menu-text">产品</span>
-
             <b class="arrow icon-angle-down"></b>
         </a>
 
 
         <ul class="submenu">
-            <li>
+            <li class="active">
                 <a href=@Url.Action("index","Product",null)>
                     <i class="icon-double-angle-right"></i>
                     产品列表
