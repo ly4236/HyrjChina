@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HyrjChina.Domain.Abstarct
 {
-   public interface IProductRespository
+   public interface IProductRepository
     {
         IEnumerable<Product> Products { get; }
 

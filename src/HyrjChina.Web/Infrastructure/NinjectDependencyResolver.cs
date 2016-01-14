@@ -31,10 +31,11 @@ namespace HyrjChina.Web.Infrastructure
 
         private void AddBindings()
         {
-            kernel.Bind<IProductRespository>().To<EFProductRepository>();
+            kernel.Bind<IProductRepository>().To<EFProductRepository>();
             kernel.Bind<IUserRepository>().To<EFUserRepository>();
             kernel.Bind<ISessionContext>().To<SessionContext>();
             kernel.Bind<ICategoryRepository>().To<EFCategoryRepository>();
+            kernel.Bind<IMenuItemRepository>().To<EFMenuItemRepository>();
         }
     }
 }

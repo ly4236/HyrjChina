@@ -9,12 +9,7 @@ namespace HyrjChina.Web.HtmlHelpers
 {
     public static class MenuHelper
     {
-        public static MvcHtmlString MenuLink(
-       this HtmlHelper htmlHelper,
-       string linkText,
-       string actionName,
-       string controllerName
-   )
+        public static MvcHtmlString MenuLink(this HtmlHelper htmlHelper, string linkText, string actionName, string controllerName)
         {
             string currentAction = htmlHelper.ViewContext.RouteData.GetRequiredString("action");
             string currentController = htmlHelper.ViewContext.RouteData.GetRequiredString("controller");

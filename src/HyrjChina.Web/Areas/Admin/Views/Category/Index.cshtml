@@ -1,24 +1,19 @@
-﻿@model HyrjChina.Web.Areas.Admin.Models.ProductListViewModel
+﻿@model HyrjChina.Web.Areas.Admin.Models.CategoryListViewModel
+
 @{
     ViewBag.Title = "产品列表";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
-
 <div class="page-content">
-    <div class="page-header"><h1>产品列表</h1></div>
+    <div class="page-header"><h1>产品类别列表</h1></div>
     <div class="row">
         <div class="col-xs-12">
             <div class="row">
                 <div class="col-xs-11">
-                    @using (Html.BeginForm("Index", "Product", FormMethod.Get))
+                    @using (Html.BeginForm("Index", "Category", FormMethod.Get))
                     {
 
                         <div class="form-group">
-                            <label class="col-sm-1 control-label no-padding-right">@Html.LabelFor(m => m.CategoryID)</label>
-                            <div class="col-sm-3">
-                                @Html.DropDownListFor(m => m.CategoryID, Model.Categorys, "全部")
-
-                            </div>
                             <label class="col-sm-1 control-label no-padding-right">@Html.LabelFor(m => m.Name)</label>
                             <div class="col-sm-3">
                                 @Html.TextBoxFor(m => m.Name)
@@ -27,7 +22,7 @@
                                 <input type="submit" class="btn btn-default" value="查询" />
                             </div>
                             <div class="col-xs-1">
-                                @Html.ActionLink("添加一个新的商品", "Create", null, new { @class = "btn btn-default" })
+                                @Html.ActionLink("添加一个产品类别", "Create", null, new { @class = "btn btn-default" })
                             </div>
                         </div>
                     }
@@ -41,11 +36,9 @@
                             <tr>
                                 <th class="text-right">ID</th>
                                 <th>名称</th>
-                                <th class="text-right">类型</th>
-                                <th class="text-right">价格</th>
                                 <th class="text-center">操作</th>
                             </tr>
-                            @foreach (var item in Model.Products)
+                            @foreach (var item in Model.Categorys)
                             {
                                 <tr>
                                     <td class="text-right">@item.ID</td>
@@ -55,12 +48,10 @@
                                        item.ID
                                    })
                                     </td>
-                                    <td>@item.Category.Name</td>
-                                    <td class="text-right">@item.Price.ToString("c")</td>
                                     <td class="text-center">
-                                        @using (Html.BeginForm("Delete", "Product"))
+                                        @using (Html.BeginForm("Delete", "Category"))
                                         {
-                                            @Html.Hidden("ProductID", item.ID)
+                                            @Html.Hidden("CategoryID", item.ID)
                                             <button type="submit"
                                                     class="btn btn-xs btn-danger"
                                                     value="删除">
@@ -77,12 +68,13 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="dataTables_info" id="sample-table-2_info">
-                    第 @Model.PagingInfo.CurrentPage 页，共 @Model.PagingInfo.TotalPages 页， 共 @Model.PagingInfo.TotalItems 项</div>
+                        第 @Model.PagingInfo.CurrentPage 页，共 @Model.PagingInfo.TotalPages 页， 共 @Model.PagingInfo.TotalItems 项
+                    </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="dataTables_paginate paging_bootstrap">
                         @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index",
-new { page = x, category = Model.CategoryID, name = Model.Name }))
+new { page = x, name = Model.Name }))
                         @*<ul class="pagination">
                                 <li class="prev disabled">
                                     <a href="#"><i class="icon-double-angle-left"></i></a>

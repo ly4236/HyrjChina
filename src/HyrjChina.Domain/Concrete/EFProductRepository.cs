@@ -5,7 +5,7 @@ using System;
 
 namespace HyrjChina.Domain.Concrete
 {
-    public class EFProductRepository : IProductRespository
+    public class EFProductRepository : IProductRepository
     {
         private EFDbContext context = new EFDbContext();
         public IEnumerable<Product> Products

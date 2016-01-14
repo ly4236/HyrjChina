@@ -14,10 +14,13 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
     {
         private IUserRepository userRepository;
         private ISessionContext sessionContext;
-        public AdminController(IUserRepository repo, ISessionContext session)
+        private IMenuItemRepository menuItemRepository;
+
+        public AdminController(IUserRepository repo, ISessionContext session, IMenuItemRepository menuItemRepo)
         {
             userRepository = repo;
             sessionContext = session;
+            menuItemRepository = menuItemRepo;
         }
         // GET: Admin/User
         public ActionResult Index()
@@ -54,5 +57,55 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
                 return View();
             }
         }
+
+        #region Menu
+        public ActionResult MenuList()
+        {
+            MenuViewModel model = new MenuViewModel();
+            model.Menu = menuItemRepository.MenuItems;
+            
+            return View(model);
+        }
+
+        public ActionResult MenuItemEdit(int ID)
+        {
+            MenuItem menuItem = menuItemRepository.MenuItems.FirstOrDefault(p => p.ID == ID);
+            return View(menuItem);
+        }
+
+        [HttpPost]
+        public ActionResult MenuItemEdit(MenuItem menuItem)
+        {
+            if (ModelState.IsValid)
+            {
+                menuItemRepository.SaveMenuItem(menuItem);
+                TempData["message"] = string.Format("{0} 保存成功", menuItem.Name);
+                return RedirectToAction("MenuList");
+            }
+            else
+            {
+                // there is something wrong with the data values
+                return View(menuItem);
+            }
+        }
+
+        public ViewResult MenuItemCreate()
+        {
+             return View("MenuItemEdit", new MenuItem());
+        }
+
+        [HttpPost]
+        public ActionResult DeleteMenuItem(int ID)
+        {
+            MenuItem deletedMenuItem = menuItemRepository.DeleteMenuItem(ID);
+            if (deletedMenuItem != null)
+            {
+                TempData["message"] = string.Format("{0} 被删除", deletedMenuItem.Name);
+            }
+            return RedirectToAction("MenuList");
+
+        }
+        #endregion
+
     }
 }

@@ -3,7 +3,6 @@ using HyrjChina.Domain.Entities;
 using HyrjChina.Web.Areas.Admin.Models;
 using HyrjChina.Web.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,17 +11,17 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
-        private IProductRespository repository;
+        private IProductRepository repository;
         private ICategoryRepository categoryRepository;
 
-        public ProductController(IProductRespository repo, ICategoryRepository categoryRepo)
+        public ProductController(IProductRepository repo, ICategoryRepository categoryRepo)
         {
             repository = repo;
             categoryRepository = categoryRepo;
         }
 
 
-        public ViewResult Index(string name, string categoryID, int page = 1, int pagesize = 5)
+        public ViewResult Index(string name, string categoryID, int page = 1, int pagesize = 10)
         {
             var products = repository.Products;
             if (!String.IsNullOrEmpty(name))
@@ -46,34 +45,12 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = pagesize,
-                    TotalItems = string.IsNullOrWhiteSpace(categoryID) ?
-                        repository.Products.Count() :
-                        repository.Products.Where(e => e.CategoryID == Convert.ToInt32(categoryID)).Count()
+                    TotalItems = products.Count()
                 },
             };
             return View(model);
         }
-
-        //ProductListViewModel model = new ProductListViewModel
-        //{
-        //    Products = repository.Products
-        //        .Where(p => categoryID == null || p.CategoryID == Convert.ToInt32(categoryID))
-        //        .OrderBy(p => p.ID)
-        //        .Skip((page - 1) * pageSize)
-        //        .Take(pageSize),
-
-        //    PagingInfo = new PagingInfo
-        //    {
-        //        CurrentPage = page,
-        //        ItemsPerPage = pageSize,
-        //        TotalItems = categoryID == null ?
-        //                repository.Products.Count() :
-        //                repository.Products.Where(e => e.CategoryID == Convert.ToInt32(categoryID)).Count()
-        //    },
-        //    Categorys = new SelectList(categoryRepository.Categorys, "ID", "Name"),
-        //    //CurrentCategory = categoryRepository.Categorys.First(x => x.ID == Convert.ToInt32(categoryID))
-        //};
-        //return View(products);
+        
 
         public ViewResult Edit(int ID)
         {
