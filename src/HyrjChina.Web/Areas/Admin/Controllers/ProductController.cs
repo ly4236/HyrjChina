@@ -100,5 +100,18 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
             return RedirectToAction("Index");
 
         }
+
+        public FileContentResult GetImage(int ID)
+        {
+            Product prod = repository.Products
+            .FirstOrDefault(p => p.ID == ID);
+            if (prod != null)
+            {
+                return File(prod.ImageData, prod.ImageMimeType);
+            }
+            else {
+                return null;
+            }
+        }
     }
 }

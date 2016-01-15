@@ -515,7 +515,7 @@
     <Content Include="Areas\Admin\Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Product\ProductSoftwareIndex.cshtml" />
     <Content Include="Views\Nav\ProductsMenu.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

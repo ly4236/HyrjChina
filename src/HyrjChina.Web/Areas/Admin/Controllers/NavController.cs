@@ -22,5 +22,9 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
             };
             return PartialView("ProductsMenu", items);
         }
+        //public PartialViewResult Menu()
+        //{
+
+        //}
     }
 }

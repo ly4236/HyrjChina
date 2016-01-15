@@ -19,7 +19,7 @@ namespace HyrjChina.Web.Controllers
             this.repository = productRepository;
         }
 
-        public ViewResult Index(int ID)
+        public ViewResult Detail(int ID)
         {
             Product product = repository.Products.First(x => x.ID == ID);
             return View(product);

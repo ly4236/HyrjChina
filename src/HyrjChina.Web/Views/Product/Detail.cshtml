@@ -1,0 +1,41 @@
+﻿@model HyrjChina.Domain.Entities.Product
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-sm-6 col-md-3  col-md-offset-2">
+        @if (Model.ImageData != null)
+        { <a href="#" class="thumbnail">
+            <img class="img-thumbnail" width="350" height="350"
+                 src="@Url.Action("GetImage", "Product",new { Model.ID })" />
+        </a>
+        }
+
+    </div>
+    <div class="col-sm-3 col-md-6">
+        <div class="row">
+            <h4>@Model.Name</h4>
+        </div>
+        <div class="row">
+            <div>
+                @Html.LabelFor(m => m.Price)
+                <span>@Model.Price.ToString("c") </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-6">
+                <div class="pull-left">
+                    @Html.HiddenFor(x => x.ID)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <input type="submit" class="btn btn-success" value="加入购物车" />
+                </div>
+                <div class="pull-right">
+                    @Html.HiddenFor(x => x.ID)
+                    <input type="submit" class="btn btn-success" value="立即购买" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
