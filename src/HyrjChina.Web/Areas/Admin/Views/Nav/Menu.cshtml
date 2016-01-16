@@ -1,0 +1,15 @@
+﻿@model IEnumerable<HyrjChina.Domain.Entities.MenuItem>
+<ul class="nav nav-list">
+    @foreach (var item in Model)
+    {
+
+        <li>
+            <a href="@item.Url" class="">
+                <i class="icon-desktop"></i>
+                <span class="menu-text">@item.Name</span>
+                <b class="arrow icon-angle-down"></b>
+            </a>
+        </li>
+
+    }
+</ul>

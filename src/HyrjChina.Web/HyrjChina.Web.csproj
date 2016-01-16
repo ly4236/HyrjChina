@@ -428,6 +428,7 @@
     <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\MenuList.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\MenuItemEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Nav\Menu.cshtml" />
     <None Include="Properties\PublishProfiles\test发布.pubxml" />
     <None Include="Properties\PublishProfiles\本地发布.pubxml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
@@ -525,7 +526,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Nav\" />
     <Folder Include="Content\ace\font\" />
   </ItemGroup>
   <ItemGroup>

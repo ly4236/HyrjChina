@@ -16,11 +16,15 @@
             /* The html and body elements cannot have any padding or margin. */
         }
 
+        .container {
+            min-height: 85%;
+        }
+
         .jumbotron {
             position: relative;
             padding: 40px 0;
             text-align: center;
-            background-color:#fff;
+            background-color: #fff;
         }
 
         .masthead h1 {
@@ -134,8 +138,9 @@
             </ul>
         </div>
     </div>
-    @RenderBody()
-    <footer>
+    <div class="container">@RenderBody()</div>
+
+    <footer class="editable-buttons-bottom">
         <div class="footerwrap">
             <div id="footer-menu">
                 <div class="top-footer-links">

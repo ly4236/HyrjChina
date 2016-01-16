@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HyrjChina.Domain.Abstarct;
+using HyrjChina.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,11 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
 {
     public class NavController : Controller
     {
+        IMenuItemRepository menuitemRepository;
         // GET: Admin/Nav
-        public ActionResult Index()
+        public NavController(IMenuItemRepository menuitemRepo)
         {
-            return View();
+            menuitemRepository = menuitemRepo;
         }
         public PartialViewResult ProductMenu(string id = null)
         {
@@ -22,9 +25,12 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
             };
             return PartialView("ProductsMenu", items);
         }
-        //public PartialViewResult Menu()
-        //{
+        public ActionResult Menu()
+        {
+            IEnumerable<MenuItem> menu = menuitemRepository.MenuItems;
 
-        //}
+
+            return View(menu);
+        }
     }
 }
