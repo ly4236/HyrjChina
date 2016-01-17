@@ -1,4 +1,4 @@
-﻿@model HyrjChina.Web.Areas.Admin.Models.MenuViewModel
+﻿@model IEnumerable<HyrjChina.Domain.Entities.MenuItem>
 @{
     ViewBag.Title = "菜单列表";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -6,7 +6,7 @@
 
 
 <div class="page-content">
-    <div class="page-header"><h1>产品列表</h1></div>
+    <div class="page-header"><h1>菜单列表</h1></div>
     <div class="row">
         <div class="col-xs-12">
             <div class="row">
@@ -29,12 +29,14 @@
                                 <th>ControllerName</th>
                                 <th>Url</th>
                                 <th>Order</th>
+                                <th>Level</th>
                                 <th>Disable</th>
                                 <th>HasAccess</th>
-                                <th>ParentMenuID</th>
+                                <th>Icon</th>
+                                <th>ParentMenu</th>
                                 <th>操作</th>
                             </tr>
-                            @foreach (var item in Model.Menu)
+                            @foreach (var item in Model)
                             {
                                 <tr>
                                     <td>@item.ID</td>
@@ -48,9 +50,16 @@
                                     <td>@item.ControllerName</td>
                                     <td>@item.Url</td>
                                     <td>@item.Order</td>
+                                    <td>@item.Level</td>
                                     <td>@item.Disable</td>
                                     <td>@item.HasAccess</td>
-                                    <td>@item.ParentMenuID</td>
+                                    <td class="text-center"><i class="@item.Icon"></i></td>
+                                    <td>
+                                        @if (item.ParentMenuID != null)
+                                        {
+                                            @item.ParentMenu.Name
+                                        }
+                                    </td>
                                     <td class="text-center">
                                         @using (Html.BeginForm("DeleteMenuItem", "Admin"))
                                         {
@@ -71,4 +80,3 @@
         </div>
     </div>
 </div>
-

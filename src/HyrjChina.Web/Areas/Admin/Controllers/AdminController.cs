@@ -61,9 +61,10 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
         #region Menu
         public ActionResult MenuList()
         {
-            MenuViewModel model = new MenuViewModel();
-            model.Menu = menuItemRepository.MenuItems;
-            
+            var model = menuItemRepository.MenuItems
+                .OrderBy(x => x.Level)
+                .ThenBy(x => x.ParentMenuID)
+                .ThenBy(x => x.Order);
             return View(model);
         }
 
@@ -91,7 +92,7 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
 
         public ViewResult MenuItemCreate()
         {
-             return View("MenuItemEdit", new MenuItem());
+            return View("MenuItemEdit", new MenuItem());
         }
 
         [HttpPost]

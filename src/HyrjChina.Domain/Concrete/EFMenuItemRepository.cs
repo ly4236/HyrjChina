@@ -46,6 +46,8 @@ namespace HyrjChina.Domain.Concrete
                     dbEntry.Order = menuItem.Order;
                     dbEntry.ParentMenuID = menuItem.ParentMenuID;
                     dbEntry.Url = menuItem.Url;
+                    dbEntry.Level = menuItem.Level;
+                    dbEntry.Icon = menuItem.Icon;
                 }
             }
             context.SaveChanges();

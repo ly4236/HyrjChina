@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyrjChina.Web", "HyrjChina.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyrjChina.Domain", "HyrjChina.Domain\HyrjChina.Domain.csproj", "{CC05DDBB-3F17-4369-B457-339FB784DAE3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyrjChina.Core", "HyrjChina.Core\HyrjChina.Core.csproj", "{FB9A80DD-350F-47D8-8E48-145B485964A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CC05DDBB-3F17-4369-B457-339FB784DAE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC05DDBB-3F17-4369-B457-339FB784DAE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC05DDBB-3F17-4369-B457-339FB784DAE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB9A80DD-350F-47D8-8E48-145B485964A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB9A80DD-350F-47D8-8E48-145B485964A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB9A80DD-350F-47D8-8E48-145B485964A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB9A80DD-350F-47D8-8E48-145B485964A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

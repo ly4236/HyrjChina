@@ -110,6 +110,14 @@
     <Compile Include="Migrations\201601140740370_Add.Designer.cs">
       <DependentUpon>201601140740370_Add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601170328476_UpdateMenuItemAddLevel.cs" />
+    <Compile Include="Migrations\201601170328476_UpdateMenuItemAddLevel.Designer.cs">
+      <DependentUpon>201601170328476_UpdateMenuItemAddLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601170801484_UpdateMenuItem.cs" />
+    <Compile Include="Migrations\201601170801484_UpdateMenuItem.Designer.cs">
+      <DependentUpon>201601170801484_UpdateMenuItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -129,6 +137,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601140740370_Add.resx">
       <DependentUpon>201601140740370_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601170328476_UpdateMenuItemAddLevel.resx">
+      <DependentUpon>201601170328476_UpdateMenuItemAddLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601170801484_UpdateMenuItem.resx">
+      <DependentUpon>201601170801484_UpdateMenuItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

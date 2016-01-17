@@ -479,6 +479,8 @@
     </Compile>
     <Compile Include="HtmlHelpers\MenuHelper.cs" />
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
+    <Compile Include="HtmlHelpers\RequestHelper.cs" />
+    <Compile Include="HtmlHelpers\UrlExtensions.cs" />
     <Compile Include="Infrastructure\Abstract\IAuthProvider.cs" />
     <Compile Include="Infrastructure\Abstract\ISessionContext.cs" />
     <Compile Include="Infrastructure\Binders\CartModelBinder.cs" />
@@ -529,6 +531,10 @@
     <Folder Include="Content\ace\font\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HyrjChina.Core\HyrjChina.Core.csproj">
+      <Project>{fb9a80dd-350f-47d8-8e48-145b485964a9}</Project>
+      <Name>HyrjChina.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HyrjChina.Domain\HyrjChina.Domain.csproj">
       <Project>{cc05ddbb-3f17-4369-b457-339fb784dae3}</Project>
       <Name>HyrjChina.Domain</Name>
