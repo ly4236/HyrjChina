@@ -8,8 +8,8 @@ namespace HyrjChina.Web.Controllers
 {
     public class CartController : Controller
     {
-        private IProductRespository repository;
-        public CartController(IProductRespository repo)
+        private IProductRepository repository;
+        public CartController(IProductRepository repo)
         {
             repository = repo;
         }

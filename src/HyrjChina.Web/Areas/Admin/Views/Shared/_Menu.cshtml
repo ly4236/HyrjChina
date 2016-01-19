@@ -33,7 +33,22 @@
             </li>
         </ul>
     </li>
+    <li class="active open">
+        <a href="#" class="dropdown-toggle">
+            <i class="icon-desktop"></i>
+            <span class="menu-text">系统</span>
+            <b class="arrow icon-angle-down"></b>
+        </a>
+        <ul class="submenu">
+            <li class="active">
+                <a href=@Url.Action("MenuList","Admin",null)>
+                    <i class="icon-double-angle-right"></i>
+                    菜单管理
+                </a>
+            </li>
 
+        </ul>
+    </li>
     <li class="active open">
         <a href="#" class="dropdown-toggle">
             <i class="icon-desktop"></i>
@@ -51,7 +66,7 @@
             </li>
 
             <li>
-                <a href="buttons.html">
+                <a href=@Url.Action("index","Category",null)>
                     <i class="icon-double-angle-right"></i>
                     产品分类管理
                 </a>
@@ -59,6 +74,12 @@
         </ul>
     </li>
 
+    <li>
+        <a href=@Url.Action("ChangePassword","Admin",null)>
+            <i class="icon-edit"></i>
+            <span class="menu-text"> 修改密码 </span>
+        </a>
+    </li>
     <li>
         <a href="#" class="dropdown-toggle">
             <i class="icon-list"></i>

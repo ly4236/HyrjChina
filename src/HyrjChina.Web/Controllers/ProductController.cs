@@ -11,15 +11,15 @@ namespace HyrjChina.Web.Controllers
 {
     public class ProductController : Controller
     {
-        private IProductRespository repository;
+        private IProductRepository repository;
         public int PageSize = 4;
 
-        public ProductController(IProductRespository productRepository)
+        public ProductController(IProductRepository productRepository)
         {
             this.repository = productRepository;
         }
 
-        public ViewResult Index(int ID)
+        public ViewResult Detail(int ID)
         {
             Product product = repository.Products.First(x => x.ID == ID);
             return View(product);

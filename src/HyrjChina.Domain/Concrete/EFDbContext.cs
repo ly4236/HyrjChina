@@ -10,7 +10,7 @@ namespace HyrjChina.Domain.Concrete
         public DbSet<Category> Categorys { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<User> Users { get; set; }
-
+        public DbSet<MenuItem> MenuItems { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //        base.OnModelCreating(modelBuilder);

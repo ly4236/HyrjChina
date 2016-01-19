@@ -1,0 +1,56 @@
+﻿@model TreeNode<HyrjChina.Domain.Entities.MenuItem>
+@{
+    Layout = null;
+}
+
+@using HyrjChina.Core.Collections
+<ul class="nav nav-list">
+    @foreach (var node in Model.Children)
+    {
+        var item = node.Value;
+        <li>
+            @if (node.HasChildren)
+                {
+                <a href="@item.Url" class="dropdown-toggle">
+                    <i class="@item.Icon"></i>
+                    <span class="menu-text">@item.Name</span>
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+                @CreateNav(node)
+            }
+            else {
+                <a href="@item.Url">
+                    <i class="@item.Icon"></i>
+                    <span class="menu-text">@item.Name</span>
+                </a>
+            }
+        </li>
+
+    }
+</ul>
+
+@helper CreateNav(TreeNode<HyrjChina.Domain.Entities.MenuItem> parentNode)
+{
+    <ul class="submenu">
+        @foreach (var node in parentNode.Children)
+        {
+            var item = node.Value;
+            <li>
+                @if (node.HasChildren)
+                {   <a href="@item.Url" class="dropdown-toggle">
+                    <i class="@item.Icon"></i>
+                    <span class="menu-text">@item.Name</span>
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+                @CreateNav(node)
+                }
+                else {
+                    <a href="@item.Url">
+                        <i class="@item.Icon"></i>
+                        <span class="menu-text">@item.Name</span>
+                    </a>
+                }
+            </li>
+        }
+    </ul>
+}

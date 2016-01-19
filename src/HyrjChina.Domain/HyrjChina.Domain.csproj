@@ -78,16 +78,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstarct\ICategoryRepository.cs" />
+    <Compile Include="Abstarct\IMenuItemRepository.cs" />
     <Compile Include="Abstarct\IOrderProcessor.cs" />
-    <Compile Include="Abstarct\IProductRespository.cs" />
+    <Compile Include="Abstarct\IProductRepository.cs" />
     <Compile Include="Abstarct\IUserRepository.cs" />
     <Compile Include="Concrete\EFCategoryRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Concrete\EFMenuItemRepository.cs" />
     <Compile Include="Concrete\EFProductRepository.cs" />
     <Compile Include="Concrete\EFUserRepository.cs" />
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\MenuItem.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ShippingDetails.cs" />
     <Compile Include="Entities\User.cs" />
@@ -98,6 +101,22 @@
     <Compile Include="Migrations\201601100130121_AddUserModel.cs" />
     <Compile Include="Migrations\201601100130121_AddUserModel.Designer.cs">
       <DependentUpon>201601100130121_AddUserModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601140617166_ProductCategroy.cs" />
+    <Compile Include="Migrations\201601140617166_ProductCategroy.Designer.cs">
+      <DependentUpon>201601140617166_ProductCategroy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601140740370_Add.cs" />
+    <Compile Include="Migrations\201601140740370_Add.Designer.cs">
+      <DependentUpon>201601140740370_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601170328476_UpdateMenuItemAddLevel.cs" />
+    <Compile Include="Migrations\201601170328476_UpdateMenuItemAddLevel.Designer.cs">
+      <DependentUpon>201601170328476_UpdateMenuItemAddLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601170801484_UpdateMenuItem.cs" />
+    <Compile Include="Migrations\201601170801484_UpdateMenuItem.Designer.cs">
+      <DependentUpon>201601170801484_UpdateMenuItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,6 +131,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601100130121_AddUserModel.resx">
       <DependentUpon>201601100130121_AddUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601140617166_ProductCategroy.resx">
+      <DependentUpon>201601140617166_ProductCategroy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601140740370_Add.resx">
+      <DependentUpon>201601140740370_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601170328476_UpdateMenuItemAddLevel.resx">
+      <DependentUpon>201601170328476_UpdateMenuItemAddLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601170801484_UpdateMenuItem.resx">
+      <DependentUpon>201601170801484_UpdateMenuItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

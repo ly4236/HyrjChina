@@ -424,6 +424,11 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Content\font\fontawesome-webfont.woff" />
     <Content Include="Areas\Admin\Views\Admin\ChangePassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\MenuList.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\MenuItemEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Nav\Menu.cshtml" />
     <None Include="Properties\PublishProfiles\test发布.pubxml" />
     <None Include="Properties\PublishProfiles\本地发布.pubxml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
@@ -454,12 +459,16 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NavController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Models\AdminListViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\CategoryListViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ChangePasswordViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\MenuViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\ProductListViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -468,7 +477,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelpers\MenuHelper.cs" />
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
+    <Compile Include="HtmlHelpers\RequestHelper.cs" />
+    <Compile Include="HtmlHelpers\UrlExtensions.cs" />
     <Compile Include="Infrastructure\Abstract\IAuthProvider.cs" />
     <Compile Include="Infrastructure\Abstract\ISessionContext.cs" />
     <Compile Include="Infrastructure\Binders\CartModelBinder.cs" />
@@ -506,7 +518,7 @@
     <Content Include="Areas\Admin\Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Product\ProductSoftwareIndex.cshtml" />
     <Content Include="Views\Nav\ProductsMenu.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -516,10 +528,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Nav\" />
     <Folder Include="Content\ace\font\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HyrjChina.Core\HyrjChina.Core.csproj">
+      <Project>{fb9a80dd-350f-47d8-8e48-145b485964a9}</Project>
+      <Name>HyrjChina.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HyrjChina.Domain\HyrjChina.Domain.csproj">
       <Project>{cc05ddbb-3f17-4369-b457-339fb784dae3}</Project>
       <Name>HyrjChina.Domain</Name>

@@ -16,7 +16,7 @@
     <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
     <script src="~/scripts/bootstrap.min.js"></script>
 
-    <link href="~/Content/ace/font-awesome.min.css" rel="stylesheet"/>
+    <link href="~/Content/ace/font-awesome.min.css" rel="stylesheet" />
     <!--[if IE 7]>
       <link rel="stylesheet" href="~/Content/ace/font-awesome-ie7.min.css" />
     <![endif]-->
@@ -59,17 +59,21 @@
         <div class="alert alert-success">@TempData["message"]</div>
     }
 
-    <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
             @Html.ActionLink("鼎智科技", "Index", "Home", null, new { @class = "navbar-brand" })
         </div>
-    </nav>
-    <div class="row">
-        <div class="col-md-2">
-            @Html.Partial("_Menu")
-        </div>
-        <div class="col-md-10 ">
-            @RenderBody()
+    </div>
+    <div class="main-container" id="main-container">
+        <div class="main-container-inner">
+            <div class="sidebar">
+                @Html.Action("Menu","Nav")
+            </div>
+            <div class="main-content">
+
+                @RenderBody()
+
+            </div>
         </div>
     </div>
 </body>

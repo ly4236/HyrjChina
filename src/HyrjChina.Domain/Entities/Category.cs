@@ -15,6 +15,7 @@ namespace HyrjChina.Domain.Entities
         [HiddenInput(DisplayValue = false)]
         public int ID { get; set; }
 
+        [Display(Name = "名称")]
         [StringLength(50)]
         public string Name { get; set; }
 

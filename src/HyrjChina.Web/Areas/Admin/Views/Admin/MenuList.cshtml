@@ -1,0 +1,82 @@
+﻿@model IEnumerable<HyrjChina.Domain.Entities.MenuItem>
+@{
+    ViewBag.Title = "菜单列表";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="page-content">
+    <div class="page-header"><h1>菜单列表</h1></div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-11">
+                    <div class="form-group">
+                        <div class="col-xs-1">
+                            @Html.ActionLink("添加一个新的菜单", "MenuItemCreate", null, new { @class = "btn btn-default" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-condensed table-bordered">
+                            <tr>
+                                <th>ID</th>
+                                <th>名称</th>
+                                <th>ActionName</th>
+                                <th>ControllerName</th>
+                                <th>Url</th>
+                                <th>Order</th>
+                                <th>Level</th>
+                                <th>Disable</th>
+                                <th>HasAccess</th>
+                                <th>Icon</th>
+                                <th>ParentMenu</th>
+                                <th>操作</th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ID</td>
+                                    <td>
+                                        @Html.ActionLink(item.Name, "MenuItemEdit", new
+                                   {
+                                       item.ID
+                                   })
+                                    </td>
+                                    <td>@item.ActionName</td>
+                                    <td>@item.ControllerName</td>
+                                    <td>@item.Url</td>
+                                    <td>@item.Order</td>
+                                    <td>@item.Level</td>
+                                    <td>@item.Disable</td>
+                                    <td>@item.HasAccess</td>
+                                    <td class="text-center"><i class="@item.Icon"></i></td>
+                                    <td>
+                                        @if (item.ParentMenuID != null)
+                                        {
+                                            @item.ParentMenu.Name
+                                        }
+                                    </td>
+                                    <td class="text-center">
+                                        @using (Html.BeginForm("DeleteMenuItem", "Admin"))
+                                        {
+                                            @Html.Hidden("ID", item.ID)
+                                            <button type="submit"
+                                                    class="btn btn-xs btn-danger"
+                                                    value="删除">
+                                                <i class="icon-trash bigger-120"></i>
+                                            </button>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

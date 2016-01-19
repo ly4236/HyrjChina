@@ -1,0 +1,70 @@
+﻿@model HyrjChina.Domain.Entities.MenuItem
+
+@{
+    ViewBag.Title = "MenuItemEdit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="page-content">
+    <div class="page-header">
+        <h1> @Model.Name</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            @using (Html.BeginForm("MenuItemEdit", "Admin",
+            FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+            {
+                @Html.HiddenFor(model => model.ID)
+
+                foreach (var property in ViewData.ModelMetadata.Properties)
+                {
+                    switch (property.PropertyName)
+                    {
+                        case "ID":
+                        case "ChildrenMenuItems":
+                        case "ParentMenu":
+                            break;
+                        case "Disable":
+                            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right">
+                    @(property.DisplayName ?? property.PropertyName)
+                </label>
+                <div class="col-sm-9">
+                    @Html.CheckBox(property.PropertyName, false)
+                </div>
+            </div>
+                            break;
+                        case "HasAccess":
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right">
+                                    @(property.DisplayName ?? property.PropertyName)
+                                </label>
+                                <div class="col-sm-9">
+                                    @Html.CheckBox(property.PropertyName, true)
+                                </div>
+                            </div>
+                            break;
+                        default:
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right">
+                                    @(property.DisplayName ?? property.PropertyName)
+                                </label>
+                                <div class="col-sm-9">
+                                    @Html.TextBox(property.PropertyName, null, new { @class = "col-xs-10 col-sm-5" })
+                                </div>
+                            </div>
+                            break;
+                    }
+                }
+                <div class="form-group">
+                    <input type="submit" value="保存" class="btn btn-primary" />
+                    @Html.ActionLink("取消并返回列表页", "MenuList",null, new
+               {
+                   @class = "btn btn-default"
+               })
+                </div>
+            }
+        </div>
+    </div>
+    
+</div>
