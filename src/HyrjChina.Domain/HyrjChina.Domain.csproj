@@ -78,22 +78,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstarct\ICategoryRepository.cs" />
+    <Compile Include="Abstarct\IAddressRepository.cs" />
+    <Compile Include="Abstarct\IOrderRepository.cs" />
+    <Compile Include="Abstarct\IRegionRepository.cs" />
     <Compile Include="Abstarct\IMenuItemRepository.cs" />
     <Compile Include="Abstarct\IOrderProcessor.cs" />
     <Compile Include="Abstarct\IProductRepository.cs" />
+    <Compile Include="Abstarct\IUserAddressRepository.cs" />
     <Compile Include="Abstarct\IUserRepository.cs" />
+    <Compile Include="Concrete\EFAddressRepository.cs" />
     <Compile Include="Concrete\EFCategoryRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFMenuItemRepository.cs" />
+    <Compile Include="Concrete\EFOrderRepository.cs" />
     <Compile Include="Concrete\EFProductRepository.cs" />
+    <Compile Include="Concrete\EFRegionRepository.cs" />
+    <Compile Include="Concrete\EFUserAddressRepository.cs" />
     <Compile Include="Concrete\EFUserRepository.cs" />
+    <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\MenuItem.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\OrderItem.cs" />
+    <Compile Include="Entities\OrderStatus.cs" />
+    <Compile Include="Entities\PaymentStatus.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Region.cs" />
     <Compile Include="Entities\ShippingDetails.cs" />
+    <Compile Include="Entities\ShippingStatus.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserAddress.cs" />
     <Compile Include="Migrations\201601090618121_InitialCreate.cs" />
     <Compile Include="Migrations\201601090618121_InitialCreate.Designer.cs">
       <DependentUpon>201601090618121_InitialCreate.cs</DependentUpon>
@@ -117,6 +133,30 @@
     <Compile Include="Migrations\201601170801484_UpdateMenuItem.cs" />
     <Compile Include="Migrations\201601170801484_UpdateMenuItem.Designer.cs">
       <DependentUpon>201601170801484_UpdateMenuItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601200127008_AddOrderModelAndAddressModel.cs" />
+    <Compile Include="Migrations\201601200127008_AddOrderModelAndAddressModel.Designer.cs">
+      <DependentUpon>201601200127008_AddOrderModelAndAddressModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601210208334_EnumTest.cs" />
+    <Compile Include="Migrations\201601210208334_EnumTest.Designer.cs">
+      <DependentUpon>201601210208334_EnumTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601210221552_EnumTest1.cs" />
+    <Compile Include="Migrations\201601210221552_EnumTest1.Designer.cs">
+      <DependentUpon>201601210221552_EnumTest1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601210225252_AddUpdateTimeForOrder.cs" />
+    <Compile Include="Migrations\201601210225252_AddUpdateTimeForOrder.Designer.cs">
+      <DependentUpon>201601210225252_AddUpdateTimeForOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601210231231_SetCreateTimeDefaultValue.cs" />
+    <Compile Include="Migrations\201601210231231_SetCreateTimeDefaultValue.Designer.cs">
+      <DependentUpon>201601210231231_SetCreateTimeDefaultValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601210601365_AddUserAddressMap.cs" />
+    <Compile Include="Migrations\201601210601365_AddUserAddressMap.Designer.cs">
+      <DependentUpon>201601210601365_AddUserAddressMap.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -143,6 +183,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601170801484_UpdateMenuItem.resx">
       <DependentUpon>201601170801484_UpdateMenuItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601200127008_AddOrderModelAndAddressModel.resx">
+      <DependentUpon>201601200127008_AddOrderModelAndAddressModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601210208334_EnumTest.resx">
+      <DependentUpon>201601210208334_EnumTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601210221552_EnumTest1.resx">
+      <DependentUpon>201601210221552_EnumTest1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601210225252_AddUpdateTimeForOrder.resx">
+      <DependentUpon>201601210225252_AddUpdateTimeForOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601210231231_SetCreateTimeDefaultValue.resx">
+      <DependentUpon>201601210231231_SetCreateTimeDefaultValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601210601365_AddUserAddressMap.resx">
+      <DependentUpon>201601210601365_AddUserAddressMap.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,15 +3,30 @@ using HyrjChina.Domain.Entities;
 using System.Linq;
 using System.Web.Mvc;
 using HyrjChina.Web.Models;
+using HyrjChina.Web.Infrastructure.Abstract;
 
 namespace HyrjChina.Web.Controllers
 {
     public class CartController : Controller
     {
         private IProductRepository repository;
-        public CartController(IProductRepository repo)
+        private ISessionContext _sessionContext;
+        //private IAddressRepository _addressRepository;
+        private IUserAddressRepository _userAddressRepository;
+        private IOrderRepository _orderRepository;
+
+        public CartController(
+            IProductRepository repo,
+            ISessionContext sessionContext,
+          //IAddressRepository addressRepository,
+          IUserAddressRepository userAddressRepository,
+          IOrderRepository orderRepository)
         {
             repository = repo;
+            _sessionContext = sessionContext;
+            //_addressRepository = addressRepository;
+            _userAddressRepository = userAddressRepository;
+            _orderRepository = orderRepository;
         }
         public ViewResult Index(Cart cart, string returnUrl)
         {
@@ -46,12 +61,35 @@ namespace HyrjChina.Web.Controllers
             return PartialView(cart);
 
         }
+
+        [Authorize]
         public ViewResult Checkout()
         {
-            return View(new ShippingDetails());
+            User user = _sessionContext.GetUserData();
+            IOrderedQueryable<UserAddress> UserAddresses = _userAddressRepository.GetAddressesByUserId(user.ID);
+
+            if (UserAddresses.Count() == 0)
+            {
+                Order model = new Order()
+                {
+                    User = _sessionContext.GetUserData()
+                };
+                return View(model);
+            }
+            else
+            {
+                Order model = new Order()
+                {
+                    User = _sessionContext.GetUserData(),
+                    Address = _userAddressRepository.GetAddressesByUserId(user.ID).FirstOrDefault().Address,
+                };
+                return View(model);
+            }
+
+
         }
         [HttpPost]
-        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        public ViewResult Checkout(Cart cart, Order order)
         {
             if (cart.Lines.Count() == 0)
             {
@@ -60,11 +98,12 @@ namespace HyrjChina.Web.Controllers
             if (ModelState.IsValid)
             {
                 //orderProcessor.ProcessOrder(cart, shippingDetails);
+                //_orderRepository.Orders(Order)
                 cart.Clear();
                 return View("Completed");
             }
             else {
-                return View(shippingDetails);
+                return View(order);
             }
         }
 

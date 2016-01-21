@@ -42,5 +42,11 @@ namespace HyrjChina.Web.Controllers
                 return View();
             }
         }
+
+        public ActionResult Logout()
+        {
+            System.Web.Security.FormsAuthentication.SignOut();
+            return Redirect("~/");
+        }
     }
 }

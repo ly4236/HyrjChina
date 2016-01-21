@@ -36,6 +36,18 @@ namespace HyrjChina.Web.Infrastructure
             kernel.Bind<ISessionContext>().To<SessionContext>();
             kernel.Bind<ICategoryRepository>().To<EFCategoryRepository>();
             kernel.Bind<IMenuItemRepository>().To<EFMenuItemRepository>();
+
+            //kernel.Bind<IMenuItemRepository>().To<EFMenuItemRepository>();
+            kernel.Bind<IUserAddressRepository>().To<EFUserAddressRepository>();
+
+            kernel.Bind<IOrderRepository>().To<EFOrderRepository>();
+            //kernel.Bind<IAddressRepository>().To<EFAddressRepository>();
+
+
+            //kernel.Bind<IMenuItemRepository>().To<EFMenuItemRepository>();
+            //kernel.Bind<IMenuItemRepository>().To<EFMenuItemRepository>();
+            //kernel.Bind<IMenuItemRepository>().To<EFMenuItemRepository>();
+            //kernel.Bind<IMenuItemRepository>().To<EFMenuItemRepository>();
         }
     }
 }

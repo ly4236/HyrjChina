@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -115,7 +117,6 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <header></header>
     <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="navbar-header pull-left">
             @Html.ActionLink("鼎智科技", "Index", "Home", null, new { @class = "navbar-brand" })
@@ -129,24 +130,22 @@
 
         <div class="navbar-header pull-right">
             <ul class="nav navbar-nav">
-                @*@if (HttpContext.Current.User.Identity.IsAuthenticated)
-                {
-                    <li>
-                        @Html.ActionLink("退出", "Logout", "Account", null, new { @class = "btn-link" })
-                    </li>
-                }
-                else {
-<li>
-                        @Html.ActionLink("请登录", "Login", "Account", null, new { @class = "btn-link" })
-                    </li>}*@
-                @Html.Action("NavUser","Nav")
+                @Html.Action("NavUser", "Nav")
                 <li>
                     @Html.Action("Summary", "Cart")
                 </li>
             </ul>
         </div>
     </div>
-    <div class="container">@RenderBody()</div>
+    <div class="container">
+        <div class="col-md-2">
+            @Html.Partial("_UserMenu")
+        </div>
+        <div class="col-md-10">
+            @RenderBody()
+        </div>
+
+    </div>
 
     <footer class="editable-buttons-bottom">
         <div class="footerwrap">

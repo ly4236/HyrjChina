@@ -16,19 +16,22 @@
         @Model.Lines.Sum(x => x.Quantity) item(s),
         @Model.ComputeTotalValue().ToString("c")
     </div>*@
-<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-    <span class="glyphicon glyphicon-shopping-cart"></span>
-    <span class="badge badge-grey">4</span>
-</a>
-<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-    <li class="dropdown-header">
-        @Html.ActionLink("付款", "Index", "Cart",
+
+    <a data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>
+<span class="badge badge-grey">@Model.Lines.Sum(e => e.Quantity) </span></a>
+    <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+        <li class="dropdown-header">
+            <span>我的订单</span>
+        </li>
+        <li>
+            <b class="hidden-xs">我的订单:</b> @Model.Lines.Sum(x => x.Quantity) 件<br />
+            <b class="hidden-xs">总价:</b>   @Model.ComputeTotalValue().ToString("c")
+        </li>
+        <li>
+            @Html.ActionLink("去结算", "CheckOut", "Cart",
 new { returnUrl = Request.Url.PathAndQuery },
 new { @class = "btn btn-default navbar-btn" })
     </li>
-    <li>
-        <b class="hidden-xs">我的订单:</b>
-        @Model.Lines.Sum(x => x.Quantity) 件,
-        @Model.ComputeTotalValue().ToString("c")
-    </li>
 </ul>
+
+

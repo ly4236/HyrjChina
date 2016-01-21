@@ -1,0 +1,14 @@
+﻿@model HyrjChina.Domain.Entities.User
+@if (HttpContext.Current.User.Identity.IsAuthenticated)
+{
+    <li class="">
+        @Html.ActionLink(Model.Name + ",欢迎光临", "Index", "User", new { id = Model.ID }, new { @class = "btn-link" })
+    </li>
+    <li class="">
+        @Html.ActionLink("退出", "Logout", "Account", null, new { @class = "btn-link" })
+    </li>
+}
+else {
+    <li class="btn-danger">
+        @Html.ActionLink("请登录", "Login", "Account", null, new { @class = "btn-link " })
+    </li>}
