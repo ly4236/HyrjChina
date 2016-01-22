@@ -42,6 +42,7 @@ namespace HyrjChina.Web.Infrastructure
 
             kernel.Bind<IOrderRepository>().To<EFOrderRepository>();
             //kernel.Bind<IAddressRepository>().To<EFAddressRepository>();
+            kernel.Bind<IAddressRepository>().To<EFAddressRepository>();
 
 
             //kernel.Bind<IMenuItemRepository>().To<EFMenuItemRepository>();

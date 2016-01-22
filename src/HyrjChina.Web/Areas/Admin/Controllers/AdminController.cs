@@ -70,6 +70,7 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
 
         public ActionResult MenuItemEdit(int ID)
         {
+            ViewBag.ParentMenu = new SelectList(menuItemRepository.MenuItems, "ID", "Name");
             MenuItem menuItem = menuItemRepository.MenuItems.FirstOrDefault(p => p.ID == ID);
             return View(menuItem);
         }
@@ -92,6 +93,7 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
 
         public ViewResult MenuItemCreate()
         {
+            ViewBag.ParentMenu = new SelectList(menuItemRepository.MenuItems, "ID", "Name");
             return View("MenuItemEdit", new MenuItem());
         }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using HyrjChina.Web.Models;
 using HyrjChina.Web.Infrastructure.Abstract;
+using System.Collections.Generic;
 
 namespace HyrjChina.Web.Controllers
 {
@@ -98,14 +99,25 @@ namespace HyrjChina.Web.Controllers
             if (ModelState.IsValid)
             {
                 //orderProcessor.ProcessOrder(cart, shippingDetails);
-                //_orderRepository.Orders(Order)
+
+                order.OrderItems = new List<OrderItem>();
+                foreach (var item in cart.Lines)
+                {
+                    order.OrderItems.Add(new OrderItem()
+                    {
+                        ProductId = item.Product.ID,
+                    });
+                }
+                _orderRepository.SaveOrder(order);
                 cart.Clear();
                 return View("Completed");
             }
             else {
                 return View(order);
+                //_orderRepository.Orders.
             }
         }
 
     }
+
 }

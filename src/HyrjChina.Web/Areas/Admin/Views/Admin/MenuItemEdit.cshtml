@@ -9,7 +9,7 @@
         <h1> @Model.Name</h1>
     </div>
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-6">
             @using (Html.BeginForm("MenuItemEdit", "Admin",
             FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
             {
@@ -22,16 +22,17 @@
                         case "ID":
                         case "ChildrenMenuItems":
                         case "ParentMenu":
+                        case "Level":
                             break;
                         case "Disable":
                             <div class="form-group">
-                <label class="col-sm-3 control-label no-padding-right">
-                    @(property.DisplayName ?? property.PropertyName)
-                </label>
-                <div class="col-sm-9">
-                    @Html.CheckBox(property.PropertyName, false)
-                </div>
-            </div>
+                                <label class="col-sm-3 control-label no-padding-right">
+                                    @(property.DisplayName ?? property.PropertyName)
+                                </label>
+                                <div class="col-sm-9">
+                                    @Html.CheckBox(property.PropertyName, false)
+                                </div>
+                            </div>
                             break;
                         case "HasAccess":
                             <div class="form-group">
@@ -43,6 +44,14 @@
                                 </div>
                             </div>
                             break;
+                        case "ParentMenuID":
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right">
+                                    @(property.DisplayName ?? property.PropertyName)
+                                </label>
+                                <div class="col-sm-9">@Html.DropDownListFor(m => m.ParentMenuID, ViewBag.ParentMenu as SelectList,new { @class = " form-control" })</div>
+                            </div>
+                            break;
                         default:
 
                             <div class="form-group">
@@ -50,7 +59,7 @@
                                     @(property.DisplayName ?? property.PropertyName)
                                 </label>
                                 <div class="col-sm-9">
-                                    @Html.TextBox(property.PropertyName, null, new { @class = "col-xs-10 col-sm-5" })
+                                    @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
                                 </div>
                             </div>
                             break;
@@ -58,7 +67,7 @@
                 }
                 <div class="form-group">
                     <input type="submit" value="保存" class="btn btn-primary" />
-                    @Html.ActionLink("取消并返回列表页", "MenuList",null, new
+                    @Html.ActionLink("取消并返回列表页", "MenuList", null, new
                {
                    @class = "btn btn-default"
                })
@@ -66,5 +75,5 @@
             }
         </div>
     </div>
-    
+
 </div>
