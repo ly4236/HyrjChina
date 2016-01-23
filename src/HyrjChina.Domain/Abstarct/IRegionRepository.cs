@@ -12,5 +12,12 @@ namespace HyrjChina.Domain.Abstarct
         Region DeleteRegion(int ID);
 
         IEnumerable<Region> GetRegions(int ID);
+
+        /// <summary>
+        /// 获取子region
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<Region> GetSonRegion(int ID);
+        IEnumerable<Region> GetProvinces();
     }
 }

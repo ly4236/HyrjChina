@@ -1,0 +1,6 @@
+﻿@model HyrjChina.Web.Controllers.RegionViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.DropDownListFor(m => m.ProvinceId, Model.Provinces)
+}

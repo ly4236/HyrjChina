@@ -14,9 +14,5 @@ namespace HyrjChina.Web.Controllers
         {
             address = _address;
         }
-        public ViewResult Address()
-        {
-            return View();
-        }
     }
 }

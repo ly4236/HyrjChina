@@ -533,6 +533,7 @@
     <Content Include="Views\User\UserAddresses.cshtml" />
     <Content Include="Views\User\UserOrders.cshtml" />
     <Content Include="Views\User\AddressEdit.cshtml" />
+    <Content Include="Views\Shared\_ CascadingArea.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

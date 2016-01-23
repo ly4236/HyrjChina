@@ -7,11 +7,21 @@ namespace HyrjChina.Domain.Entities
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int Level { get; set; }
-        public string LevelName { get; set; }
 
-        public int ParentRegionId { get; set; }
+        [Display(Name = "名称")]
+        [Required]
+        [StringLength(maximumLength:100)]
+        public string Name { get; set; }
+
+        public int Level { get; set; }
+
+        [StringLength(10)]
+        public string LevelName { get; set; }
+        
+        [StringLength(15)]
+        public string Code { get; set; }
+
+        public int? ParentRegionId { get; set; }
         public virtual Region ParentRegion { get; set; }
         public virtual ICollection<Region> ChildrenRegionItems { get; set; }
 

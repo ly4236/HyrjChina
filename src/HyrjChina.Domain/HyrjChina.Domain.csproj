@@ -158,6 +158,14 @@
     <Compile Include="Migrations\201601210601365_AddUserAddressMap.Designer.cs">
       <DependentUpon>201601210601365_AddUserAddressMap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601230036029_UpdateRegionModel.cs" />
+    <Compile Include="Migrations\201601230036029_UpdateRegionModel.Designer.cs">
+      <DependentUpon>201601230036029_UpdateRegionModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601230850469_UpdateRegionModel1.cs" />
+    <Compile Include="Migrations\201601230850469_UpdateRegionModel1.Designer.cs">
+      <DependentUpon>201601230850469_UpdateRegionModel1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -201,6 +209,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601210601365_AddUserAddressMap.resx">
       <DependentUpon>201601210601365_AddUserAddressMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601230036029_UpdateRegionModel.resx">
+      <DependentUpon>201601230036029_UpdateRegionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601230850469_UpdateRegionModel1.resx">
+      <DependentUpon>201601230850469_UpdateRegionModel1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
