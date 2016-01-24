@@ -43,13 +43,52 @@ namespace HyrjChina.Web.Controllers
         }
         public ActionResult UserAddresses()
         {
-            return View();
+            User user = sessionContext.GetUserData();
+            var model = _userAddressRepository.GetAddressesByUserId(user.ID).ToList();
+            return View(model);
         }
+
 
         public ActionResult AddressEdit(int addressId)
         {
             var model = _addressRepostory.Addresses.FirstOrDefault(x => x.Id == addressId);
+            ViewData["Provinces"] = new SelectList(
+              _regionReposiory.GetProvinces()
+              , "ID", "Name");
+            ViewData["Citys"] = new SelectList(
+             _regionReposiory.GetSonRegion(model.ProvinceId)
+             , "ID", "Name");
+            ViewData["Towns"] = new SelectList(
+             _regionReposiory.GetSonRegion(model.CityId)
+             , "ID", "Name");
             return View(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult AddressEdit(Address addresss)
+        {
+            User user = sessionContext.GetUserData();
+            UserAddress userAddress = new UserAddress()
+            {
+                Address = addresss,
+                UserId = user.ID,
+            };
+            if (addresss.Id!=0)
+            {
+                userAddress.AddressId = addresss.Id;
+            }
+            if (ModelState.IsValid)
+            {
+                _userAddressRepository.SaveUserAddress(userAddress);
+                TempData["message"] = string.Format("地址保存成功", addresss.AddressName);
+                return RedirectToAction("UserAddresses");
+            }
+            else
+            {
+                // there is something wrong with the data values
+                return View(addresss);
+            }
         }
 
         public ActionResult AddressCreate()
@@ -82,16 +121,6 @@ namespace HyrjChina.Web.Controllers
         {
             return View(_orderRepository.Orders);
         }
-
-        //public ActionResult GetProvinces()
-        //{
-        //    return Json(_regionReposiory.GetProvinces(), JsonRequestBehavior.AllowGet);
-        //}
-
-        //public ActionResult GetProducts(int intCatID)
-        //{
-        //    return Json(_regionReposiory.GetSonRegion(intCatID), JsonRequestBehavior.AllowGet);
-        //}
     }
 
     public class RegionViewModel

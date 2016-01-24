@@ -34,10 +34,10 @@ namespace HyrjChina.Domain.Entities
 
 
         [Display(Name = "付款时间")]
-        public DateTime PaidTime { get; set; }
+        public DateTime? PaidTime { get; set; }
 
         [Display(Name = "最近更新时间")]
-        public DateTime UpdateTime { get; set; }
+        public DateTime? UpdateTime { get; set; }
 
         public virtual ICollection<OrderItem> OrderItems { get; set; }
 

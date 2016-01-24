@@ -11,7 +11,7 @@ namespace HyrjChina.Domain.Abstarct
     {
         IEnumerable<Address> Addresses { get; }
 
-        void SaveCategory(Address address);
+        void SaveAddress(Address address);
 
         Address DeleteAddress(int ID);
 

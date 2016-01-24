@@ -5,19 +5,26 @@
 }
 
 <div class="row">
-    <div class="col-sm-6 col-md-3  col-md-offset-1">
+    <div class="col-sm-12 col-md-3  col-md-offset-1">
         @using (Html.BeginForm())
             {
             @Html.ValidationSummary()
-            @Html.Hidden("AddressId", Model.AddressId)
+            @Html.HiddenFor(m=>m.AddressId)
             <h3>收货人信息</h3>
             if (Model.Address == null)
             {
-                <div>1</div>
+                @Html.ActionLink("添加一个收货地址", "AddressCreate", "User", null, new { @class = "btn btn-primary" })
             }
             else
             {
-                <div>2</div>
+                <div class="co">
+                    @Model.Address.ConsigneeName
+                    @Model.Address.Province.Name
+                    @Model.Address.City.Name
+                    @Model.Address.Town.Name
+                    @Model.Address.CompleteAddress
+                    @Model.Address.Phone
+                </div>
             }
 
             <div class="text-center">

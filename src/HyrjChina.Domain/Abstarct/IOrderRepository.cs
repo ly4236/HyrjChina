@@ -13,5 +13,8 @@ namespace HyrjChina.Domain.Abstarct
         void SaveOrder(Order order);
         void SaveOrder(IEnumerable<Order> orders);
     }
-    public interface IOrderItemRepository { }
+    public interface IOrderItemRepository
+    {
+        IEnumerable<OrderItem> OrderItems { get; }
+    }
 }

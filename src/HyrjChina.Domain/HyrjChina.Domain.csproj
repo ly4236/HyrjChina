@@ -166,6 +166,18 @@
     <Compile Include="Migrations\201601230850469_UpdateRegionModel1.Designer.cs">
       <DependentUpon>201601230850469_UpdateRegionModel1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601240448478_UpdateOrderModel.cs" />
+    <Compile Include="Migrations\201601240448478_UpdateOrderModel.Designer.cs">
+      <DependentUpon>201601240448478_UpdateOrderModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601240527250_UpdateOrderModel1.cs" />
+    <Compile Include="Migrations\201601240527250_UpdateOrderModel1.Designer.cs">
+      <DependentUpon>201601240527250_UpdateOrderModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601240539249_UpdateOrderModel2.cs" />
+    <Compile Include="Migrations\201601240539249_UpdateOrderModel2.Designer.cs">
+      <DependentUpon>201601240539249_UpdateOrderModel2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -215,6 +227,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601230850469_UpdateRegionModel1.resx">
       <DependentUpon>201601230850469_UpdateRegionModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601240448478_UpdateOrderModel.resx">
+      <DependentUpon>201601240448478_UpdateOrderModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601240527250_UpdateOrderModel1.resx">
+      <DependentUpon>201601240527250_UpdateOrderModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601240539249_UpdateOrderModel2.resx">
+      <DependentUpon>201601240539249_UpdateOrderModel2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

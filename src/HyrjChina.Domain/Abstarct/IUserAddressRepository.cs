@@ -10,5 +10,7 @@ namespace HyrjChina.Domain.Abstarct
     public interface IUserAddressRepository
     {
         IOrderedQueryable<UserAddress> GetAddressesByUserId(int userid);
+
+        void SaveUserAddress(UserAddress userAddress);
     }
 }

@@ -26,4 +26,16 @@ namespace HyrjChina.Domain.Concrete
             context.SaveChanges();
         }
     }
+
+    public class EFOrderItemRepository : IOrderItemRepository
+    {
+        private EFDbContext context = new EFDbContext();
+        public IEnumerable<OrderItem> OrderItems
+        {
+            get
+            {
+                return context.OrderItems;
+            }
+        }
+    }
 }

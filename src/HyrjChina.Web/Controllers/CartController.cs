@@ -15,17 +15,17 @@ namespace HyrjChina.Web.Controllers
         //private IAddressRepository _addressRepository;
         private IUserAddressRepository _userAddressRepository;
         private IOrderRepository _orderRepository;
-
+        private IAddressRepository _addressRepository;
         public CartController(
             IProductRepository repo,
             ISessionContext sessionContext,
-          //IAddressRepository addressRepository,
+          IAddressRepository addressRepository,
           IUserAddressRepository userAddressRepository,
           IOrderRepository orderRepository)
         {
             repository = repo;
             _sessionContext = sessionContext;
-            //_addressRepository = addressRepository;
+            _addressRepository = addressRepository;
             _userAddressRepository = userAddressRepository;
             _orderRepository = orderRepository;
         }
@@ -83,14 +83,16 @@ namespace HyrjChina.Web.Controllers
                 {
                     User = _sessionContext.GetUserData(),
                     Address = _userAddressRepository.GetAddressesByUserId(user.ID).FirstOrDefault().Address,
+
                 };
+                model.AddressId = model.Address.Id;
                 return View(model);
             }
 
 
         }
         [HttpPost]
-        public ViewResult Checkout(Cart cart, Order order)
+        public ViewResult Checkout(Cart cart, Order order, int AddressId)
         {
             if (cart.Lines.Count() == 0)
             {
@@ -99,6 +101,20 @@ namespace HyrjChina.Web.Controllers
             if (ModelState.IsValid)
             {
                 //orderProcessor.ProcessOrder(cart, shippingDetails);
+                Address address = _addressRepository.Addresses.Where(x => x.Id == AddressId).FirstOrDefault();
+                order.Address = new Address()
+                {
+                    ConsigneeName = address.ConsigneeName,
+                    ProvinceId = address.ProvinceId,
+                    CityId = address.CityId,
+                    TownId = address.TownId,
+                    CompleteAddress = address.CompleteAddress,
+                    Phone = address.Phone,
+                    AddressName = address.AddressName,
+
+                };
+            order.UserId = _sessionContext.GetUserData().ID;
+                order.OrderStatus = 0;
 
                 order.OrderItems = new List<OrderItem>();
                 foreach (var item in cart.Lines)
@@ -108,6 +124,8 @@ namespace HyrjChina.Web.Controllers
                         ProductId = item.Product.ID,
                     });
                 }
+                order.OrderTotal = order.OrderItems.Count;
+                order.OrderDiscount = 1;
                 _orderRepository.SaveOrder(order);
                 cart.Clear();
                 return View("Completed");
@@ -116,6 +134,10 @@ namespace HyrjChina.Web.Controllers
                 return View(order);
                 //_orderRepository.Orders.
             }
+        }
+        public ActionResult Completed()
+        {
+            return View();
         }
 
     }

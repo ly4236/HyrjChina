@@ -80,8 +80,10 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                menuItem.Level = menuItemRepository.MenuItems.FirstOrDefault(x => x.ID == menuItem.ParentMenuID).Level + 1;
                 menuItemRepository.SaveMenuItem(menuItem);
                 TempData["message"] = string.Format("{0} 保存成功", menuItem.Name);
+
                 return RedirectToAction("MenuList");
             }
             else
@@ -94,6 +96,7 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
         public ViewResult MenuItemCreate()
         {
             ViewBag.ParentMenu = new SelectList(menuItemRepository.MenuItems, "ID", "Name");
+
             return View("MenuItemEdit", new MenuItem());
         }
 

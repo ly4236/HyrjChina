@@ -29,7 +29,7 @@ namespace HyrjChina.Domain.Concrete
             throw new NotImplementedException();
         }
 
-        public void SaveCategory(Address address)
+        public void SaveAddress(Address address)
         {
             throw new NotImplementedException();
         }
