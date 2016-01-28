@@ -37,6 +37,10 @@ namespace HyrjChina.Domain.Entities
         [Display(Name = "地址别名")]
         public string AddressName { get; set; }
 
+
+        [Display(Name = "公司名称")]
+        public string CompanyName { get; set; }
+
         public ICollection<Order> Orders { get; set; }
     }
 }

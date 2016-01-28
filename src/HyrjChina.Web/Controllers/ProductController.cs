@@ -53,7 +53,7 @@ namespace HyrjChina.Web.Controllers
         {
             Product prod = repository.Products
             .FirstOrDefault(p => p.ID == ID);
-            if (prod != null)
+            if (prod.ImageData != null)
             {
                 return File(prod.ImageData, prod.ImageMimeType);
             }

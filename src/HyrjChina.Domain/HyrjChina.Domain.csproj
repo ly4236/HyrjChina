@@ -110,6 +110,8 @@
     <Compile Include="Entities\ShippingStatus.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserAddress.cs" />
+    <Compile Include="Entities\UserRole.cs" />
+    <Compile Include="Entities\User_UserRole_Mapping.cs" />
     <Compile Include="Migrations\201601090618121_InitialCreate.cs" />
     <Compile Include="Migrations\201601090618121_InitialCreate.Designer.cs">
       <DependentUpon>201601090618121_InitialCreate.cs</DependentUpon>
@@ -178,6 +180,30 @@
     <Compile Include="Migrations\201601240539249_UpdateOrderModel2.Designer.cs">
       <DependentUpon>201601240539249_UpdateOrderModel2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601280117290_UpdateUserModel.cs" />
+    <Compile Include="Migrations\201601280117290_UpdateUserModel.Designer.cs">
+      <DependentUpon>201601280117290_UpdateUserModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601280237122_UpdateOrderItem.cs" />
+    <Compile Include="Migrations\201601280237122_UpdateOrderItem.Designer.cs">
+      <DependentUpon>201601280237122_UpdateOrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601280653297_UpdateOrder.cs" />
+    <Compile Include="Migrations\201601280653297_UpdateOrder.Designer.cs">
+      <DependentUpon>201601280653297_UpdateOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601280720116_UpdateOrderItem1.cs" />
+    <Compile Include="Migrations\201601280720116_UpdateOrderItem1.Designer.cs">
+      <DependentUpon>201601280720116_UpdateOrderItem1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601280733202_UpdateOrderItem2.cs" />
+    <Compile Include="Migrations\201601280733202_UpdateOrderItem2.Designer.cs">
+      <DependentUpon>201601280733202_UpdateOrderItem2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601280834318_UpdateOrderItem3.cs" />
+    <Compile Include="Migrations\201601280834318_UpdateOrderItem3.Designer.cs">
+      <DependentUpon>201601280834318_UpdateOrderItem3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -236,6 +262,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601240539249_UpdateOrderModel2.resx">
       <DependentUpon>201601240539249_UpdateOrderModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601280117290_UpdateUserModel.resx">
+      <DependentUpon>201601280117290_UpdateUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601280237122_UpdateOrderItem.resx">
+      <DependentUpon>201601280237122_UpdateOrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601280653297_UpdateOrder.resx">
+      <DependentUpon>201601280653297_UpdateOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601280720116_UpdateOrderItem1.resx">
+      <DependentUpon>201601280720116_UpdateOrderItem1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601280733202_UpdateOrderItem2.resx">
+      <DependentUpon>201601280733202_UpdateOrderItem2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601280834318_UpdateOrderItem3.resx">
+      <DependentUpon>201601280834318_UpdateOrderItem3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

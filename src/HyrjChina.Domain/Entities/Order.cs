@@ -66,5 +66,6 @@ namespace HyrjChina.Domain.Entities
         {
             get; set;
         }
+        
     }
 }

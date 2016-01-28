@@ -58,18 +58,14 @@
     {
         <div class="alert alert-success">@TempData["message"]</div>
     }
-
-    <div class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            @Html.ActionLink("鼎智科技", "Index", "Home", null, new { @class = "navbar-brand" })
-        </div>
-    </div>
+    @Html.Action("Top", "Nav")
     <div class="main-container" id="main-container">
-        <div class="main-container-inner">
-            <div class="sidebar">
-                @Html.Action("Menu","Nav")
-            </div>
-            <div class="main-content">
+
+        <div class="sidebar">
+            @Html.Action("Menu", "Nav")
+        </div>
+        <div class="main-content">
+            <div class="main-content-inner">
 
                 @RenderBody()
 

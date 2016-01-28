@@ -22,7 +22,7 @@ namespace HyrjChina.Web.Areas.Admin.Controllers
             sessionContext = session;
             menuItemRepository = menuItemRepo;
         }
-        // GET: Admin/User
+
         public ActionResult Index()
         {
             return View();

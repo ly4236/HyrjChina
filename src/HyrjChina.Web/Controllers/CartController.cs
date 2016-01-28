@@ -113,7 +113,7 @@ namespace HyrjChina.Web.Controllers
                     AddressName = address.AddressName,
 
                 };
-            order.UserId = _sessionContext.GetUserData().ID;
+                order.UserId = _sessionContext.GetUserData().ID;
                 order.OrderStatus = 0;
 
                 order.OrderItems = new List<OrderItem>();
@@ -122,9 +122,11 @@ namespace HyrjChina.Web.Controllers
                     order.OrderItems.Add(new OrderItem()
                     {
                         ProductId = item.Product.ID,
+                        Quantity = item.Quantity,
+                        Price = item.Product.Price
                     });
                 }
-                order.OrderTotal = order.OrderItems.Count;
+                order.OrderTotal = order.OrderItems.Sum(x => x.Price * x.Quantity);
                 order.OrderDiscount = 1;
                 _orderRepository.SaveOrder(order);
                 cart.Clear();

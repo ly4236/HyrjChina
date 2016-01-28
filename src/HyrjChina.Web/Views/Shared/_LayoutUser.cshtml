@@ -5,159 +5,115 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @Scripts.Render("~/bundles/jquery")
+    <script src="~/scripts/jquery-2.1.4.js"></script>
+    <script src="~/scripts/jquery.validate.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+
+
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
-
     <script src="~/scripts/bootstrap.min.js"></script>
+
+    <link href="~/Content/ace/font-awesome.min.css" rel="stylesheet" />
+    <!--[if IE 7]>
+      <link rel="stylesheet" href="~/Content/ace/font-awesome-ie7.min.css" />
+    <![endif]-->
+
+
+    <link href="~/Content/ace/ace.min.css" rel="stylesheet" />
+    <link href="~/Content/ace/ace-skins.min.css" rel="stylesheet" />
+    <link href="~/Content/ace/ace-rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/ace/ace-ie.min.css" rel="stylesheet" />
+    <!--[if lte IE 8]>
+          <link rel="stylesheet" href="~/Content/ace/ace-ie.min.css" />
+        <![endif]-->
+
+
+
+    <script src="~/scripts/ace-elements.min.js"></script>
+    <script src="~/scripts/ace-extra.min.js"></script>
+    <script src="~/scripts/ace.min.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="~/scripts/html5shiv.js"></script>
+        <script src="~/scripts/respond.min.js"></script>
+        <![endif]-->
     <style>
-        html,
-        body {
-            height: 100%;
-            /* The html and body elements cannot have any padding or margin. */
-        }
-
-        .container {
-            min-height: 85%;
-        }
-
-        .jumbotron {
-            position: relative;
-            padding: 40px 0;
-            text-align: center;
+        .dz-nav {
+            margin-bottom: 0;
             background-color: #fff;
+            border-bottom: 0;
         }
 
-        .masthead h1 {
-            font-size: 60px;
-            line-height: 1;
-            letter-spacing: -2px;
-            font-weight: 700;
+        .footer {
+            background-color: #555555;
+            min-height: 50px;
         }
 
-        h1 {
-            display: block;
-            font-size: 2em;
-            -webkit-margin-before: 0.67em;
-            -webkit-margin-after: 0.67em;
-            -webkit-margin-start: 0px;
-            -webkit-margin-end: 0px;
-            font-weight: bold;
-        }
-
-        .projects-header {
-            width: 60%;
-            text-align: center;
-            margin: 60px 0 10px;
-            font-weight: 200;
-            margin-bottom: 40px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .projects .thumbnail {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            max-width: 310px;
-            margin-bottom: 30px;
-            border-radius: 0;
-        }
-        /* Wrapper for page content to push down footer */
-        section {
-            min-height: 90%;
-            height: auto;
-            /* Negative indent footer by its height */
-            margin: 0 auto -0px;
-            /* Pad bottom by footer height */
-            padding: 0 0 60px;
-        }
-
-        /* Set the fixed height of the footer here */
-        footer {
-            height: 40px;
-            background-color: #242729;
-        }
-
-        .footerwrap {
-            width: 1000px;
-            padding: 15px;
-            margin: 0 auto;
-            text-align: left;
-            box-sizing: content-box;
-        }
-
-        footer #footer-menu {
-            margin-bottom: 1.5em;
-            line-height: 1.7em;
-        }
-
-        #footer-menu {
-            float: left;
-        }
-
-        footer .footerwrap #footer-menu .top-footer-links {
-            text-align: left;
-        }
-
-            footer .footerwrap #footer-menu .top-footer-links a {
-                margin: 0 .8em 0 0;
-                color: #99d4ff;
+            .footer a {
+                color: #aaaaaa;
             }
 
-        .navbar-right {
-            float: right !important;
-            margin-right: 15px;
-            margin-left: 15px;
-        }
+                .footer a:hover {
+                    color: #eaeaea;
+                }
+
+            .footer .footer-menu li {
+                float: left;
+                list-style: none;
+                margin-left: 10px;
+            }
     </style>
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="navbar-header pull-left">
-            @Html.ActionLink("鼎智科技", "Index", "Home", null, new { @class = "navbar-brand" })
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("产品列表", "List", "Product")</li>
-                <li><a href="#">客户服务</a></li>
-                <li class="dropdown-toggle">
-                </li>
-            </ul>
-        </div>
+    <div class="main-container" id="main-container">
+        <div class="navbar navbar-default" id="navbar">
+            <div class="navbar-header pull-left">
+                @Html.ActionLink("鼎智科技", "Index", "Home", null, new { @class = "navbar-brand" })
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("产品列表", "List", "Product")</li>
+                    <li><a href="#">客户服务</a></li>
+                    <li class="dropdown-toggle">
+                    </li>
+                </ul>
+            </div>
 
-        <div class="navbar-header pull-right">
-            <ul class="nav navbar-nav">
-                @Html.Action("NavUser", "Nav")
-                <li>
-                    @Html.Action("Summary", "Cart")
-                </li>
-            </ul>
+            <div class="navbar-header pull-right">
+                <ul class="nav navbar-nav">
+                    @Html.Action("NavUser", "Nav")
+                    <li>
+                        @Html.Action("Summary", "Cart")
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="col-md-2 text-right"
-             style="border-right:1px solid  #ccc;height:600px">
-            @Html.Partial("_UserMenu")
-        </div>
-        <div class="col-md-10 ">
-            @RenderBody()
-        </div>
-
-    </div>
-
-    <footer class="editable-buttons-bottom">
-        <div class="footerwrap">
-            <div id="footer-menu">
-                <div class="top-footer-links">
-                    @Html.ActionLink("公司简介", "Login", "Account", new { @returnUrl = Url.Action("Index", "Home", new { area = "Admin" }) }, new { @class = "btn-link" })
-                    @Html.ActionLink("人才招聘", "Login", "Account", new { @returnUrl = Url.Action("Index", "Home", new { area = "Admin" }) }, new { @class = "btn-link" })
-                    @Html.ActionLink("管理", "Home", "Admin", null, new { @class = "btn-link" })
+        <div class="main-container">
+            <div class="sidebar">
+                @Html.Partial("_UserMenu")
+            </div>
+            <div class="main-content">
+                <div class="main-content-inner">
+                    @RenderBody()
                 </div>
             </div>
         </div>
-    </footer>
+        <footer class="footer">
+            <div class="footer-menu">
+                <ul>
+                    <li>
+                        @Html.ActionLink("公司简介", "Login", "Account", new { @returnUrl = Url.Action("Index", "Home", new { area = "Admin" }) }, new { @class = "btn-link" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("人才招聘", "Login", "Account", new { @returnUrl = Url.Action("Index", "Home", new { area = "Admin" }) }, new { @class = "btn-link" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("管理", "Home", "Admin", null, new { @class = "btn-link" })
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

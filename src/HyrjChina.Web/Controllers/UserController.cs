@@ -74,7 +74,7 @@ namespace HyrjChina.Web.Controllers
                 Address = addresss,
                 UserId = user.ID,
             };
-            if (addresss.Id!=0)
+            if (addresss.Id != 0)
             {
                 userAddress.AddressId = addresss.Id;
             }
@@ -119,20 +119,9 @@ namespace HyrjChina.Web.Controllers
 
         public ActionResult UserOrders()
         {
-            return View(_orderRepository.Orders);
+            var model = _orderRepository.Orders
+                .Where(x => x.UserId == sessionContext.GetUserData().ID).ToList();
+            return View(model);
         }
-    }
-
-    public class RegionViewModel
-    {
-        public SelectList Provinces { get; set; }
-        public SelectList Citys { get; set; }
-        public SelectList Towns { get; set; }
-        public SelectList Countrys { get; set; }
-
-        public int? ProvinceId { get; set; }
-        public int? CityId { get; set; }
-        public int? TownId { get; set; }
-        public int? CountryId { get; set; }
     }
 }

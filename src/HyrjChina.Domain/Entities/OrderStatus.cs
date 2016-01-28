@@ -14,18 +14,18 @@ namespace HyrjChina.Domain.Entities
         /// <summary>
         /// Pending
         /// </summary>
-        等待处理 = 10,
+        等待处理 = 0,
         /// <summary>
         /// Processing
         /// </summary>
-        处理中 = 20,
+        处理中 = 10,
         /// <summary>
         /// Complete
         /// </summary>
-        完成 = 30,
+        完成 = 20,
         /// <summary>
         /// Cancelled
         /// </summary>
-        取消 = 40
+        取消 = 30
     }
 }

@@ -4,63 +4,64 @@
     ViewBag.Title = "鼎智科技 - 收货地址";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
+<div class="page-content">
+    <div class="row">
+        <div class="col-md-12">
+            @foreach (var item in Model)
+            {
+                <div class="panel panel-success">
+                    <div class="panel-heading">
 
-<div class="row">
-    <div class="col-md-12">
-        @foreach (var item in Model)
-        {
-            <div class="panel panel-success">
-                <div class="panel-heading">
+                        @if (string.IsNullOrWhiteSpace(item.Address.AddressName))
+                        {
+                            <h3 class="panel-title">
+                                @item.Address.City.Name+@item.Address.ConsigneeName
+                            </h3>
+                        }
+                        else
+                        {
+                            <h3 class="panel-title">
+                                @item.Address.AddressName
+                            </h3>
+                        }
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-6">
+                            <label class="text-right col-md-4">收货人:</label><span class="col-md-6">@item.Address.ConsigneeName</span>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-right col-md-4">所在地区:</label>
+                            <span class="col-md-8">
+                                @item.Address.Province.Name
+                                @item.Address.City.Name
+                                @item.Address.Town.Name
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-right col-md-4">地址:</label><span class="col-md-8">@item.Address.CompleteAddress</span>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-right col-md-4">手机:</label><span class="col-md-8">@item.Address.Phone</span>
+                        </div>
+                        <div class="col-md-6">
 
-                    @if (string.IsNullOrWhiteSpace(item.Address.AddressName))
-                    {
-                        <h3 class="panel-title">
-                            @item.Address.City.Name+@item.Address.ConsigneeName
-                        </h3>
-                    }
-                    else
-                    {
-                        <h3 class="panel-title">
-                            @item.Address.AddressName
-                        </h3>
-                    }
+                            @Html.ActionLink("编辑", "AddressEdit", new { item.AddressId }, new { @class = "btn btn-link" })
+
+                        </div>
+                        @*@foreach (var property in ViewData.ModelMetadata.Properties)
+                            {
+                                <div class="col-md-6">@(property.DisplayName ?? property.PropertyName)： @property.Model.ToString()</div>
+                            }*@
+
+                    </div>
                 </div>
-                <div class="panel-body">
-                    <div class="col-md-6">
-                        <label class="text-right col-md-4">收货人:</label><span class="col-md-6">@item.Address.ConsigneeName</span>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="text-right col-md-4">所在地区:</label>
-                        <span class="col-md-8">
-                            @item.Address.Province.Name
-                            @item.Address.City.Name
-                            @item.Address.Town.Name
-                        </span>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="text-right col-md-4">地址:</label><span class="col-md-8">@item.Address.CompleteAddress</span>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="text-right col-md-4">手机:</label><span class="col-md-8">@item.Address.Phone</span>
-                    </div>
-                    <div class="col-md-6">
-                   
-                        @Html.ActionLink("编辑", "AddressEdit", new { item.AddressId }, new { @class = "btn btn-link" })
-                    
-                </div>
-                @*@foreach (var property in ViewData.ModelMetadata.Properties)
-                    {
-                        <div class="col-md-6">@(property.DisplayName ?? property.PropertyName)： @property.Model.ToString()</div>
-                    }*@
+            }
 
-            </div>
         </div>
-        }
-
     </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        @Html.ActionLink("新增收货地址", "AddressCreate", null, new { @class = "btn btn-primary" })
+    <div class="row">
+        <div class="col-md-12">
+            @Html.ActionLink("新增收货地址", "AddressCreate", null, new { @class = "btn btn-primary" })
+        </div>
     </div>
 </div>

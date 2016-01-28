@@ -1,19 +1,24 @@
 ﻿@model HyrjChina.Web.Models.ProductSoftwareIndexViewMode
+
 @{
     Layout = null;
-}
-<div class="row">
-    @for (int i = 0; i < Model.Products.Count(); i++)
+    for (int i = 0; i < Model.Products.Count() / 4; i++)
 
     {
-        if (i % 4 >= 2)
-        {
-            @Html.Partial("ProductSummary", Model.Products[i], new ViewDataDictionary { { "css", "col-lg-3" } })
-        }
-        else
-        {
-            @Html.Partial("ProductSummary", Model.Products[i], new ViewDataDictionary { { "css", "" } })
-        }
+        <div class="row">
+            @Html.Partial("ProductSummary", Model.Products[i], new ViewDataDictionary { { "css", "col-md-3" } })
+            @Html.Partial("ProductSummary", Model.Products[i + 1], new ViewDataDictionary { { "css", "col-md-3" } })
+            @Html.Partial("ProductSummary", Model.Products[i + 2], new ViewDataDictionary { { "css", "col-md-3" } })
+            @Html.Partial("ProductSummary", Model.Products[i + 3], new ViewDataDictionary { { "css", "col-md-3" } })
+        </div>
     }
-
-</div>
+    if (Model.Products.Count() % 4 > 0)
+    {
+        <div class="row">
+            @for (int i = 1; i < Model.Products.Count() % 4; i++)
+            {
+                @Html.Partial("ProductSummary", Model.Products[Model.Products.Count() - Model.Products.Count() % 4 + i], new ViewDataDictionary { { "css", "col-md-3" } })
+            }
+        </div>
+    }
+}

@@ -4,93 +4,93 @@
     ViewBag.Title = "AddressEdit";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-
-<div class="row">
-    <div class="col-md-12">
-        @using (Html.BeginForm("AddressEdit", "User",
+<div class="page-content">
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("AddressEdit", "User",
                                                                                                            FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
-        {
-            @Html.HiddenFor(m => m.Id)
-            <div class="form-group">
-                <label for="firstname" class="col-md-2 control-label">收货人</label>
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.ConsigneeName, new { @class = "form-control" })
+            {
+                @Html.HiddenFor(m => m.Id)
+                <div class="form-group">
+                    <label for="firstname" class="col-md-2 control-label">收货人</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.ConsigneeName, new { @class = "form-control" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">地区</label>
-                <label class="col-md-1 control-label text-right">省</label>
-                @if (Model.Id != 0)
+                <div class="form-group">
+                    <label class="col-md-2 control-label">地区</label>
+                    <label class="col-md-1 control-label text-right">省</label>
+                    @if (Model.Id != 0)
                 {
-                    <div class="col-md-2">
-                        @Html.DropDownListFor(m => m.ProvinceId,
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(m => m.ProvinceId,
   ViewData["Provinces"] as SelectList, new { @class = "form-control" })
-                    </div>
-                    <label class="col-md-1 control-label text-right">市</label>
-                    <div class="col-md-2">
-                        @Html.DropDownListFor(m => m.CityId,
+                        </div>
+                        <label class="col-md-1 control-label text-right">市</label>
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(m => m.CityId,
      ViewData["Citys"] as SelectList, new { @class = "form-control" })
-                    </div>
-                    <label class="col-md-1 control-label text-right">县</label>
-                    <div class="col-md-2">
-                        @Html.DropDownListFor(m => m.TownId,
+                        </div>
+                        <label class="col-md-1 control-label text-right">县</label>
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(m => m.TownId,
     ViewData["Towns"] as SelectList, new { @class = "form-control" })
-                    </div>
-                }
-                else {
-                    <div class="col-md-2">
-                        @Html.DropDownListFor(m => m.ProvinceId,
+                        </div>
+                    }
+                    else {
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(m => m.ProvinceId,
   ViewData["Provinces"] as SelectList, new { @class = "form-control" })
-                    </div>
-                    <label class="col-md-1 control-label text-right">市</label>
-                    <div class="col-md-2">
-                        @Html.DropDownListFor(m => m.CityId,
+                        </div>
+                        <label class="col-md-1 control-label text-right">市</label>
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(m => m.CityId,
     new List<SelectListItem>() {
            new SelectListItem() { Value = "0", Text = "请选择" }
     }, new { @class = "form-control" })
-                    </div>
-                    <label class="col-md-1 control-label text-right">县</label>
-                    <div class="col-md-2">
-                        @Html.DropDownListFor(m => m.TownId,
+                        </div>
+                        <label class="col-md-1 control-label text-right">县</label>
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(m => m.TownId,
     new List<SelectListItem>() {
            new SelectListItem() { Value = "0", Text = "请选择" }
     }, new { @class = "form-control" })
-                    </div> }
-
-            </div>
-            <div class="form-group">
-                <label for="firstname" class="col-md-2 control-label">详细地址</label>
-                <div class="col-md-7">
-                    @Html.TextBoxFor(m => m.CompleteAddress, new { @class = "form-control" })
+                        </div> }
 
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="firstname" class="col-md-2 control-label">手机号码</label>
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="firstname" class="col-md-2 control-label">地址别名</label>
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.AddressName, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="保存" class="col-md-1 col-md-offset-1 btn btn-success" />
-                @Html.ActionLink("取消并返回列表页", "Index", null, new
-           {
-               @class = "col-md-2 col-md-offset-1 btn btn-warning"
-           })
-            </div>
+                <div class="form-group">
+                    <label for="firstname" class="col-md-2 control-label">详细地址</label>
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(m => m.CompleteAddress, new { @class = "form-control" })
 
-        }
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstname" class="col-md-2 control-label">手机号码</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstname" class="col-md-2 control-label">地址别名</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.AddressName, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="保存" class="col-md-1 col-md-offset-1 btn btn-success" />
+                    @Html.ActionLink("取消并返回列表页", "Index", null, new
+               {
+                   @class = "col-md-2 col-md-offset-1 btn btn-warning"
+               })
+                </div>
 
+            }
+
+        </div>
     </div>
 </div>
-
-<script type="text/javascript">
+    <script type="text/javascript">
     @*$(document).ready(function () {
         $("#ProvinceId").empty();
         $.ajax({
@@ -173,4 +173,4 @@
         })
     });
 
-</script>
+    </script>

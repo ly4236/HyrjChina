@@ -431,6 +431,7 @@
     <Content Include="Areas\Admin\Views\Nav\Menu.cshtml" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Areas\Admin\Views\Order\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Nav\Top.cshtml" />
     <None Include="Properties\PublishProfiles\test发布.pubxml" />
     <None Include="Properties\PublishProfiles\本地发布.pubxml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
@@ -470,15 +471,19 @@
     <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Models\AdminListViewModel.cs" />
     <Compile Include="Areas\Admin\Models\CategoryListViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ChangePasswordViewModel.cs" />
     <Compile Include="Areas\Admin\Models\MenuViewModel.cs" />
     <Compile Include="Areas\Admin\Models\OrderListViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ProductListViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\TopNavViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\UserListViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -538,6 +543,7 @@
     <Content Include="Views\User\AddressEdit.cshtml" />
     <Content Include="Views\Shared\_ CascadingArea.cshtml" />
     <Content Include="Views\Cart\Completed.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -547,6 +553,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Content\ace\font\" />
     <Folder Include="Views\Common\" />
   </ItemGroup>
